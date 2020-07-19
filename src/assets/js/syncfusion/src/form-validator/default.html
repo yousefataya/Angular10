@@ -1,0 +1,170 @@
+<div class="col-lg-12 control-section">
+    <div class="content-wrapper" style="margin-bottom: 25px;">
+        <div class="form-title"><span>Add Customer Details</span></div>
+        <form id="formId" class="form-horizontal" novalidate="">
+            <div class="form-group" style="padding-top: 11px;">
+                <div class="e-float-input">
+                    <input type="text" id="user" name="User" required data-msg-containerid="userError">
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text" for="user">User Name</label>
+                </div>
+                <div id="userError"></div>
+            </div>
+            <div class="form-group" style="padding-top: 11px;">
+                <div class="e-float-input">
+                    <input type="text" id="mail" name="Email" required data-msg-containerid="mError">
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text" for="mail">Email</label>
+                </div>
+                <div id="mError"></div>
+            </div>
+            <div class="form-group" style="padding-top: 11px;">
+                <div class="e-float-input">
+                    <input type="text" id="dob" name="DOB" required data-msg-containerid="dateError">
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text" for="dob">DOB</label>
+                </div>
+                <div id="dateError"></div>
+            </div>
+            <div class="form-group" style="padding-top: 11px;">
+                <div class="e-float-input">
+                    <textarea rows="4" id="Address" name="Address"></textarea>
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text" for="address">Address</label>
+                </div>
+            </div>
+            <div class="form-group" style="padding-top: 11px;">
+                <div class="e-float-input">
+                    <input type="text" id="city" name="City" required data-msg-containerid="cityError">
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text" for="city">City</label>
+                </div>
+                <div id="cityError"></div>
+            </div>
+            <div class="form-group" style="padding-top: 11px;">
+                <div class="e-float-input">
+                    <input type="text" id="state" name="State" required data-msg-containerid="stateError">
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text" for="state">State</label>
+                </div>
+                <div id="stateError"></div>
+            </div>
+            <div class="row">
+                <div class="custom">
+                    <button id="validateSubmit" class="samplebtn" type="submit" style="height: 35px;">Submit</button>
+                </div>
+                <div>
+                    <button id="resetbtn" class="samplebtn" type="reset" style="height: 35px;">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="action-description">
+    <p>This sample is used to validate form using the <code>obtrusive Validation</code>. Type the values in input element and
+        click the <code>Add Customer</code> to validate the form element. Clear the input values by the using <code>Clear</code>        button.</p>
+</div>
+<div id="description">
+    <p>
+        In Obtrusive validation, rules can be customized from the JavaScript instead of defining the rules from html.
+    </p>
+    <br>
+    <p>
+        <table style="width:100%">
+            <tr>
+                <th>Field</th>
+                <th>Rule</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Required</td>
+                <td>The field must have any value</td>
+                <td>value</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>The input must have email format</td>
+                <td>ej2@syncfusion.com</td>
+            </tr>
+            <tr>
+                <td>Date ISO</td>
+                <td>The input must have date ISO format</td>
+                <td>1995-03-31</td>
+            </tr>
+        </table>
+    </p>
+    <br>
+    <p>
+        Enter the above values in the corresponding input elements and click the <code>Add Customer</code> button to validate
+        the form. The <code>clear</code> button can wipe out all the input values in the form.
+    </p>
+</div>
+
+<style>
+    .form-title {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.70);
+    }
+
+    .e-error,
+    .e-float-text {
+        font-weight: 500;
+    }
+
+    .e-custom-label {
+        font-size: 14px;
+        font-weight: 500;
+        margin-left: 20px;
+    }
+
+    form {
+        padding-top: 20px;
+        margin-bottom: 45px;
+        border: 1px solid #ccc;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.36);
+        border-radius: 5px;
+        background: #f9f9f9;
+    }
+
+    .highcontrast form,
+    .highcontrast .header {
+        color: #fff;
+        background: #000000;
+    }
+
+    .header {
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    table,
+    td,
+    th {
+        padding: 5px;
+    }
+
+    .form-horizontal .form-group {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .row {
+        padding-bottom: 30px;
+        padding-top: 25px;
+    }
+
+    .custom {
+        float: left;
+        margin: 0 10% 0 38%;
+    }
+
+    @media only screen and (max-width: 400px) {
+        .custom {
+            float: left;
+            margin: 0 10% 0 20%;
+        }
+    }
+</style>

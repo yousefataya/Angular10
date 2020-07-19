@@ -1,0 +1,501 @@
+<style type="text/css">
+    .register-table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        .register-table td,
+        .register-table tr {
+            margin: 0px;
+            padding: 2px;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+    h3 {
+        display: inline-block;
+        margin: 0px;
+    }
+</style>
+
+<div class="page-wrapper">
+    <div class="page-inner">
+
+
+
+        <script>
+
+            'use strict';
+
+            var classHolder = document.getElementsByTagName("BODY")[0],
+
+                themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+                    {},
+                themeURL = themeSettings.themeURL || '',
+                themeOptions = themeSettings.themeOptions || '';
+
+            if (themeSettings.themeOptions) {
+                classHolder.className = themeSettings.themeOptions;
+                console.log("%c✔ Theme settings loaded", "color: #148f32");
+            }
+            else {
+                console.log("Heads up! Theme settings is empty or does not exist, loading default settings...");
+            }
+            if (themeSettings.themeURL && !document.getElementById('mytheme')) {
+                var cssfile = document.createElement('link');
+                cssfile.id = 'mytheme';
+                cssfile.rel = 'stylesheet';
+                cssfile.href = themeURL;
+                document.getElementsByTagName('head')[0].appendChild(cssfile);
+            }
+
+            var saveSettings = function () {
+                themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function (item) {
+                    return /^(nav|header|mod|display)-/i.test(item);
+                }).join(' ');
+                if (document.getElementById('mytheme')) {
+                    themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+                };
+                localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+            }
+
+            var resetSettings = function () {
+                localStorage.setItem("themeSettings", "");
+            }
+
+            //var resetSettings = function () {
+            //    window.addEventListener('load', function(){
+            //        var forms = document.getElementsByClassName('needs-validation');
+            //        var validation = Array.prototype.filter.call(forms, function (form) {
+            //            form.addEventListener('submit', function (event) {
+            //                if (form.checkValidity() === false) {
+            //                    event.preventDefault();
+            //                    event.stopPropagation();
+            //                }
+            //                form.classList.add('was-validated');
+            //            }, false);
+            //        });
+            //}, false);
+            //}
+        </script>
+        <script>
+            function validate() {
+                alert('Hello World');
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }
+
+        </script>
+        <div class="vertical">
+
+
+            <jqxTree #treeReference (click)="onCheckChange()" [width]="252" [source]="treeSource"></jqxTree>
+
+            <br>
+            <hr class="red-emoticon">
+            <jqxNavigationBar [width]="250" [height]="'49%'">
+                <div>
+                    <div style='margin-top: 2px;'>
+                        <div style='float: right;'>
+                            <img alt='Settings' src='assets/jqwidgets/styles/images/info.png' />
+                        </div>
+                        <div style='margin-left: 4px; float: right;'>
+                            Settings
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <ul>
+                        <li>
+                            <br />
+                            <div class="vertical-box-row">
+                                <label class="label-important">Alfresco</label>
+                                <br />
+                                &nbsp;&nbsp;
+                                <input type="button" class="btn-navbar" value="Alfresco" width="100" />
+                            </div>
+
+                            <br />
+                            <hr class="red-emoticon" />
+                            <div class="vertical-box-row">
+                                <label class="label-important">Integration</label>
+                                <br />
+                                &nbsp;&nbsp;
+                                <input type="button" class="btn-navbar" value="Integration" width="100" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div style='margin-top: 2px;'>
+                        <div style='float: right;'>
+                            <img alt='Settings' src='assets/jqwidgets/styles/images/mail.png" />' />
+                        </div>
+                        <div style='margin-left: 4px; float: right;'>
+                            EmailServer
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <ul>
+                        <li>Gmail Integration</li>
+                        <li>OutLook Integration</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style='margin-top: 2px;'>
+                        <div style='float: right;'>
+                            <img alt='Settings' src='assets/jqwidgets/styles/images/pdf.png" />' />
+                        </div>
+                        <div style='margin-left: 4px; float: right;'>
+                            Pdf
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <ul>
+                        <li>Reporting</li>
+                        <li>charts</li>
+                    </ul>
+                </div>
+            </jqxNavigationBar>
+        </div>
+        <div class="page-content-wrapper">
+            <main id="js-page-content" role="main" class="page-content">
+                <jqxMenu #menuReference [width]="getWidth()" [height]="30">
+                    <ul>
+                        <li><a href="#Home">Home</a></li>
+                        <li>
+                            Solutions
+                            <ul style="width: 250px;">
+                                <li><a href="#Education">Profile</a></li>
+                                <li><a href="#Financial">Financial services</a></li>
+                                <li><a href="#Government">Email</a></li>
+                                <li><a href="#Manufacturing">Manufacturing</a></li>
+                                <li type="separator"></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            Settings
+                            <ul>
+                                <li><a href="#PCProducts">Email Server</a></li>
+                                <li><a href="#MobileProducts">Integration CMS</a></li>
+                                <li><a href="#AllProducts">Pdf Engine</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </jqxMenu>
+                <div style="height: 30px; border: 1px thin; padding: 10px;" class="jqx-widget-header">
+                    <div style="float: right">
+                        <jqxButton #buttonReference id="button"
+                                   [width]="150" [height]="35" [template]="'primary'">
+                            Services
+                        </jqxButton>
+                        <jqxPopover [showCloseButton]="true" [selector]="'#button'" [title]="'Services'"
+                                    [arrowOffsetValue]="50">
+                            <div #notifications></div>
+                        </jqxPopover>
+                    </div>
+                </div>
+                <div class="subheader">
+                    <h1 class="subheader-title">
+                        <i class='subheader-icon fal fa-'></i> Page <span class='fw-300'>Control Panel</span> <sup class='badge badge-primary fw-500'>ADDON</sup>
+                        <small>
+                            Administrator
+                        </small>
+                    </h1>
+                    <div class="subheader-block">
+                        Administrator
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div id="panel-1" class="panel">
+
+                            <div class="panel-hdr">
+                                <h2>
+                                    Panel <span class="fw-300"><i>Title</i></span>
+                                </h2>
+                                <div class="panel-toolbar">
+                                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                                </div>
+                            </div>
+
+                            <div class="panel-container show">
+
+                                <div class="panel-content">
+                                    <div id="panel-5" class="panel">
+                                        <div class="panel-container color-success-200">
+                                            <div class="register">
+                                                <div id="acceptInput" style="margin-left: 50px;">I accept terms</div>
+                                                <div id="sendButtonInput"></div>
+                                            </div>
+
+
+                                            <jqxExpander [width]="1500" [showArrow]="false" [toggleMode]="'none'">
+                                                <div>Item Inventory</div>
+                                                <div>
+                                                    <jqxValidator #myValidator ng-model="myValidator" (ngModel)="myValidator" [rules]="rules" [animationDuration]="0" [hintType]="'label'">
+                                                        <form #validateform id="validateform" class="needs-validation">
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label" for="validationTooltip01">HallId <span class="text-danger">*</span> </label>
+
+                                                                    <jqxInput type="text" class="form-control" #HallId name="HallId" id="HallId" ng-model="HallId" placeholder="HallId" required (ngModel)="HallId"></jqxInput>
+                                                                    <div class="valid-tooltip color-info-50">
+                                                                        Looks good!
+                                                                    </div>
+                                                                    <div class="invalid-tooltip red-emoticon">
+                                                                        Required!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label" for="validationTooltip02">Hall Name <span class="text-danger">*</span></label>
+                                                                    <jqxDateTimeInput id="HallName" #HallName ng-model="HallName" (ngModel)="HallName" name="HallName">
+                                                                    </jqxDateTimeInput>
+                                                                    <div class="valid-tooltip color-info-50">
+                                                                        Looks good!
+                                                                    </div>
+                                                                    <div class="invalid-tooltip red-emoticon">
+                                                                        Required!
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label" for="validationTooltip01">start date <span class="text-danger">*</span> </label>
+
+                                                                    <jqxInput type="text" class="form-control" #startDate name="startDate" id="startDate" ng-model="startDate" placeholder="startDate" required (ngModel)="startDate"></jqxInput>
+                                                                    <div class="valid-tooltip color-info-50">
+                                                                        Looks good!
+                                                                    </div>
+                                                                    <div class="invalid-tooltip red-emoticon">
+                                                                        Required!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label" for="validationTooltip02">end date <span class="text-danger">*</span></label>
+                                                                    <jqxDateTimeInput id="endDate" #endDate ng-model="endDate" (ngModel)="endDate" name="endDate">
+                                                                    </jqxDateTimeInput>
+                                                                    <div class="valid-tooltip color-info-50">
+                                                                        Looks good!
+                                                                    </div>
+                                                                    <div class="invalid-tooltip red-emoticon">
+                                                                        Required!
+                                                                    </div>
+                                                                </div>
+                                                                <input id="sendButton" name="sendButton" class="btn btn-outline-primary ml-auto icon-google-plus" width="70" value="add item" type="button" (click)="onSubmit()" />
+                                                            </div>
+                                                        </form>
+                                                    </jqxValidator>
+                                                </div>
+                                                <jqxNotification #msgNotification
+                                                                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                                                                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'info'" [appendContainer]="validateform">
+                                                    <div>
+                                                        success
+                                                    </div>
+                                                </jqxNotification>
+                                            </jqxExpander>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+
+            <div class="modal fade default-example-modal-left" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-left">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title h4">Confirm Operations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="shortcut-menu d-none d-sm-block">
+    <input type="checkbox" class="menu-open" name="menu-open" id="menu_open" />
+    <label for="menu_open" class="menu-open-button ">
+        <span class="app-shortcut-icon d-block"></span>
+    </label>
+    <a href="#" class="menu-item btn" data-toggle="tooltip" data-placement="left" title="Scroll Top">
+        <i class="fal fa-arrow-up"></i>
+    </a>
+    <a href="page_login-alt.html" class="menu-item btn" data-toggle="tooltip" data-placement="left" title="Logout">
+        <i class="fal fa-sign-out"></i>
+    </a>
+    <a href="#" class="menu-item btn" data-action="app-fullscreen" data-toggle="tooltip" data-placement="left" title="Full Screen">
+        <i class="fal fa-expand"></i>
+    </a>
+    <a href="#" class="menu-item btn" data-action="app-print" data-toggle="tooltip" data-placement="left" title="Print page">
+        <i class="fal fa-print"></i>
+    </a>
+    <a href="#" class="menu-item btn" data-action="app-voice" data-toggle="tooltip" data-placement="left" title="Voice command">
+        <i class="fal fa-microphone"></i>
+    </a>
+</nav>
+<div class="modal fade js-modal-messenger modal-backdrop-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content h-100">
+            <div class="dropdown-header bg-trans-gradient d-flex align-items-center w-100">
+                <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+                    <span class="mr-2">
+                        <span class="rounded-circle profile-image d-block" style="background-image:url('src/assets/img/demo/avatars/avatar-d.png'); background-size: cover;"></span>
+                    </span>
+                    <div class="info-card-text">
+                        <a href="javascript:void(0);" class="fs-lg text-truncate text-truncate-lg text-white" data-toggle="dropdown" aria-expanded="false">
+                            Tracey Chang
+                            <i class="fal fa-angle-down d-inline-block ml-1 text-white fs-md"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Send Email</a>
+                            <a class="dropdown-item" href="#">Create Appointment</a>
+                            <a class="dropdown-item" href="#">Block User</a>
+                        </div>
+                        <span class="text-truncate text-truncate-md opacity-80">IT Director</span>
+                    </div>
+                </div>
+                <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                </button>
+            </div>
+            <div class="modal-body p-0 h-100 d-flex">
+
+                <div class="msgr d-flex h-100 flex-column bg-white">
+
+                    <div class="d-flex flex-column">
+                        <div class="border-faded border-right-0 border-bottom-0 border-left-0 flex-1 mr-3 ml-3 position-relative shadow-top">
+                            <div class="pt-3 pb-1 pr-0 pl-0 rounded-0" tabindex="-1">
+                                <div id="msgr_input" contenteditable="true" data-placeholder="Type your message here..." class="height-10 form-content-editable"></div>
+                            </div>
+                        </div>
+                        <div class="height-8 px-3 d-flex flex-row align-items-center flex-wrap flex-shrink-0">
+                            <a href="javascript:void(0);" class="btn btn-icon fs-xl width-1 mr-1" data-toggle="tooltip" data-original-title="More options" data-placement="top">
+                                <i class="fal fa-ellipsis-v-alt color-fusion-300"></i>
+                            </a>
+                            <a href="javascript:void(0);" class="btn btn-icon fs-xl mr-1" data-toggle="tooltip" data-original-title="Attach files" data-placement="top">
+                                <i class="fal fa-paperclip color-fusion-300"></i>
+                            </a>
+                            <a href="javascript:void(0);" class="btn btn-icon fs-xl mr-1" data-toggle="tooltip" data-original-title="Insert photo" data-placement="top">
+                                <i class="fal fa-camera color-fusion-300"></i>
+                            </a>
+                            <div class="ml-auto">
+                                <a href="javascript:void(0);" class="btn btn-info">Send</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade js-modal-settings modal-backdrop-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-right modal-md">
+        <div class="modal-content">
+            <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center w-100">
+                <h4 class="m-0 text-center color-white">
+                    Layout Settings
+                    <small class="mb-0 opacity-80">User Interface Settings</small>
+                </h4>
+                <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="settings-panel">
+                    <div class="mt-4 d-table w-100 px-5">
+                        <div class="d-table-cell align-middle">
+                            <h5 class="p-0">
+                                Create Person
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="list" id="fh">
+                        <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="header-function-fixed"></a>
+                        <span class="onoffswitch-title">Create</span>
+                        <span class="onoffswitch-title-desc">Add Person</span>
+                    </div>
+                    <div class="list" id="nff">
+                        <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-fixed"></a>
+                        <span class="onoffswitch-title">View Only</span>
+                        <span class="onoffswitch-title-desc">View Person</span>
+                    </div>
+                    <div class="list" id="nfm">
+                        <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-minify"></a>
+                        <span class="onoffswitch-title">Delete Person</span>
+                        <span class="onoffswitch-title-desc">Delete Person</span>
+                    </div>
+                    <div class="list" id="nfh">
+                        <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-hidden"></a>
+                        <span class="onoffswitch-title">Search Person</span>
+                        <span class="onoffswitch-title-desc">Search Person</span>
+                    </div>
+                    <hr class="mb-0 mt-4">
+                    <div class="pl-5 pr-3 py-3 bg-faded">
+                        <div class="row no-gutters">
+                            <div class="col-6 pr-1">
+                                <a href="#" class="btn btn-outline-danger fw-500 btn-block" data-action="app-reset">Reset Settings</a>
+                            </div>
+                            <div class="col-6 pl-1">
+                                <a href="#" class="btn btn-danger fw-500 btn-block" data-action="factory-reset">Factory Reset</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span id="saving"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var controls = {
+        leftArrow: '<i class="fal fa-angle-left" style="font-size: 1.25rem"></i>',
+        rightArrow: '<i class="fal fa-angle-right" style="font-size: 1.25rem"></i>'
+    }
+
+    var runDatePicker = function () {
+        $('#datepicker-1').datepicker(
+            {
+                todayHighlight: true,
+                orientation: "bottom left",
+                templates: controls
+            });
+    }
+</script>

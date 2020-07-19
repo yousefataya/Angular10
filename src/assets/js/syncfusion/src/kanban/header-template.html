@@ -1,0 +1,84 @@
+<div class="control-section">
+    <div class="control_wrapper">
+        <div id='Kanban'></div>
+    </div>
+</div>
+<script id="headerTemplate" type="text/x-jsrender">
+        <div class="header-template-wrap">
+            <div class="header-icon e-icons ${keyField}"></div>
+            <div class="header-text">${headerText}</div>
+        </div>
+    </script>
+<style type="text/css">
+    .e-kanban .header-template-wrap {
+        display: inline-flex;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .e-kanban .header-template-wrap .header-icon {
+        margin-top: 3px;
+        width: 10%;
+    }
+
+    .e-kanban .header-template-wrap .header-text {
+        margin-left: 15px;
+    }
+
+    .e-kanban .card-header {
+        padding-left: 12px;
+    }
+
+    .e-kanban .Open::before {
+        content: '\e607';
+        color: #6495ed;
+        font-size: 16px;
+    }
+
+    .e-kanban .InProgress::before {
+        content: '\e606';
+        color: #0000ff;
+        font-size: 16px;
+    }
+
+    .e-kanban .Review::before {
+        content: '\e345';
+        color: #ffa500;
+        font-size: 16px;
+    }
+
+    .e-kanban .Close::before {
+        content: '\ea84';
+        color: #008000;
+        font-size: 16px;
+    }
+
+    .bootstrap4 .e-kanban .Open::before {
+        content: '\e729';
+    }
+
+    .bootstrap4 .e-kanban .InProgress::before {
+        content: '\e7c8';
+    }
+
+    .bootstrap4 .e-kanban .Review::before {
+        content: '\e787';
+    }
+    
+    .bootstrap4 .e-kanban .Close::before {
+        content: '\e7d9';
+    }
+</style>
+<div id="action-description">
+    <p>
+        This sample demonstrates the header template feature of Kanban. The column headers of Kanban are customized with
+        text + icons in this demo.
+    </p>
+</div>
+<div id="description">
+    <p>
+        The Kanban provides an option to customize its column header using the <code>columns</code> ->
+        <code>template</code> property, which accepts the
+        string or HTML element`s ID value, which is used as the template for the header.
+    </p>
+</div>

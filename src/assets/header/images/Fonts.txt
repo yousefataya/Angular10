@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Bebas
+Author: Flat-it
+Url: http://www.fontsquirrel.com/fonts/bebas
+
+Font: Montserrat
+Author: Julieta Ulanovsky
+Url: http://www.fontsquirrel.com/fonts/montserrat

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Tree Grid Default Selection Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Default Selection in Javascript (ES5) Tree Grid Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/tree-grid">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/tree-grid">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/tree-grid/virtual-scrolling/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/tree-grid/selection-api/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Default Selection in Javascript (ES5) Tree Grid Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/tree-grid/default.html">
+                                <span>Tree Grid</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Default Selection</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+        <p>This sample demonstrates the selection feature in Tree Grid, which allows you to select row or cell through simple mouse down or keyboard interaction.
+       You can change selection type, selection mode and cell selection mode from the properties panel.</p>
+   </div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="col-lg-9 control-section">
+    <div class="content-wrapper">
+        <div id="TreeGrid"></div>
+    </div>
+</div>
+<div class="col-lg-3 property-section">
+    <table id="property" title="Properties" style="width: 100%">
+        <tbody><tr>
+            <td style="width: 30%">
+                <div style="padding-top: 7px">Selection Type</div>
+            </td>
+            <td style="width: 70%;padding-right: 10px">
+                <div>
+                    <input type="text" tabindex="1" id="type">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 30%">
+                <div>
+                    Selection Mode
+                </div>
+            </td>
+            <td style="width: 70%">
+                <div style="padding-right: 10px;padding-bottom: 10px">
+                    <input type="text" tabindex="1" id="mode">
+                </div>
+            </td>
+        </tr>
+        <tr id="cellselection" style="display: none">
+            <td style="width: 30%;">
+                <div>
+                   Cell Selection Mode
+                </div>
+            </td>
+            <td style="width: 70%;">
+                <div style="padding-right: 10px;padding-bottom: 10px">
+                    <input type="text" tabindex="1" id="cellmode">
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<!-- custom code start -->
+
+
+
+<!-- custom code end -->
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            
+        Selection provides an interactive support to highlight the row or cell that you select. 
+        Selection can be done through a simple
+        Mouse down or Keyboard interaction. To enable selection, set 
+        allowSelection
+         as true.
+    
+    Tree Grid supports two types of selection which can be set using 
+        
+        selectionSettings-&gt;type
+         property. They are,
+    
+        Single - Enabled by default. Allows the user to select single row/cell at a time.
+        Multiple - Allows the user to select more than one row/cell at a time.
+    
+    Also, supports three modes of selection which can be set using 
+        selectionSettings-&gt;mode
+         property. They are,
+    
+    
+        Row - Enabled by default. Enables the row selection in Tree Grid.
+        Cell - Enables the cell selection in Tree Grid.
+        Both - Enables both the row and cell selection in Tree Grid. 
+        Clicking any cell will select the both row and cell simultaneously.
+        
+    
+    The Tree Grid supports two types of cell selection mode that can be set by using the  
+            selectionSettings-&gt;cellSelectionMode
+             property. They are,
+        
+            Flow - The Flow value is set by default. The range of cells are selected between the start index
+                and end index that includes in between cells of rows.
+            Box - Range of cells are selected from the start and 
+                end column indexes that includes in between cells of rows within the range.
+        
+    To perform the multi-selection, hold CTRL key and click the desired rows/cells. 
+    To select range of rows/cells, hold SHIFT key and click the rows/cells.
+    While using the Tree Grid in a touch device environment, there is an option for multi-selection 
+        through single tap on the row and it will show a popup with the multi-selection symbol. 
+        Tap the icon to enable multi-selection in a single tap.
+    
+    In this demo, enter the values in the Start and To text box to select range of rows.
+        And click the Clear Selection button to deselect the rows.
+    
+    
+        More information on the selection configuration can be found in this documentation section.
+    
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="datasource.js"  type="text/javascript"></script>
+
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

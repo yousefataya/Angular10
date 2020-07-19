@@ -1,0 +1,827 @@
+﻿<header class="main-header header-style-two">
+
+
+
+    <div id="container" style="background-color:whitesmoke;margin-left:0px;">
+        <ul id="menu" style="background-color:whitesmoke;color:orangered;font-weight:bold;font-family:Calibri;font-size:14px;"></ul>
+    </div>
+
+
+</header>
+
+<div id="header-shadow"></div>
+
+<div id="control-bar" class="grey-bg clearfix">
+    <div class="container_12">
+
+        <div class="float-left">
+            <button type="button"><img src="images/icons/fugue/navigation-180.png" width="16" height="16"> Back to list</button>
+        </div>
+
+        <div class="float-right">
+            <button type="button" disabled="disabled">Disabled</button>
+            <button type="button" class="red">Cancel</button>
+            <button type="button" class="grey">Reset</button>
+            <button type="button"><img src="images/icons/fugue/tick-circle.png" width="16" height="16"> Save</button>
+        </div>
+
+    </div>
+</div>
+<div class="clear"></div>
+
+
+
+<section class="grid_6">
+    <div class="block-border">
+        <div class="block-content">
+            <h1>Control panel</h1>
+            <br />
+            <br />
+            <h4 style="color:indigo;background-color:ivory;font-family:Calibri;font-weight:bold;width:100%;font-size:16px;">General options</h4>
+            <ul class="shortcuts-list row">
+                <li>
+                    <a href="#">
+                        <img src="assets/img/increase_208px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> الرسم البياني </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/business_512px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> الملاحظات </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/inbox_480px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> البريد الالكتروني </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/exist4.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large">  تسجيل الخروج </h4>
+                    </a>
+                </li>
+            </ul>
+
+            <h4 style="color:indigo;background-color:ivory;font-family:Calibri;font-weight:bold;width:100%;font-size:16px;">شريط الادوات</h4>
+            <ul class="shortcuts-list row">
+
+                <li>
+                    <br />
+
+                    <jqxToolbar #callcenter [width]="750" [height]="80"
+                                [tools]="tools" [initTools]="initTools">
+                    </jqxToolbar>
+                </li>
+            </ul>
+            <br />
+            <br />
+            <h4 style="color:indigo;background-color:ivory;font-family:Calibri;font-weight:bold;width:100%;font-size:16px;">Content management</h4>
+            <ul class="shortcuts-list row">
+                <li>
+                    <div class="btn" (click)="WriteNew()">
+                        <img src="assets/img/add_512px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> نموذج  توجه </h4>
+                    </div>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/database_480px.png" width="48" height="48"><h4 style="color:cadetblue;font-weight:bold;font-size:large"> عرض بيانات </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/settings_512px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> البحث </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/add_512px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> اضافة جديد </h4>
+                    </a>
+                </li>
+            </ul>
+            <br />
+            <br />
+            <h4 style="color:indigo;background-color:ivory;font-family:Calibri;font-weight:bold;width:100%;font-size:16px;">System</h4>
+            <ul class="shortcuts-list row">
+                <li>
+                    <a href="#">
+                        <img src="assets/img/email_400px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> اعدادات الخادم  </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/add_folder_480px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large">التحكم</h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/administrative_tools_480px.png" width="48" height="48"><h4 style="color:cadetblue;font-weight:bold;font-size:large"> ادارة بيانات </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/combo_chart_512px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> الاداء </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/add_folder_480px.png" width="48" height="48"> <h4 style="color:cadetblue;font-weight:bold;font-size:large"> طباعة تقارير </h4>
+                    </a>
+                </li>
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                &nbsp;&nbsp;
+                <li>
+                    <a href="#">
+                        <img src="assets/img/database_400px.png" width="48" height="48">  <h4 style="color:cadetblue;font-weight:bold;font-size:large"> نسخة احتياط </h4>
+                    </a>
+                </li>
+            </ul>
+
+            <br />
+            <br />
+
+            <h4 style="color:indigo;background-color:ivory;font-family:Calibri;font-weight:bold;width:100%;font-size:16px;">Toolbar</h4>
+
+            
+
+            <ul class="shortcuts-list row">
+                <li>
+                    <div class="col-6" style="margin-left:35px;margin-top:20px;">
+
+                        <div class="row gj-width-full" style="width:990px;">
+
+                            <span class="input-group-text" id="inputGroupPrepend3"><button (click)="popupExtraPlac()" class="btn-primary" name="sipclientDescription" id="sipclientDescription" styles="width:50px;height:50px;border-radius:10px;margin-top:-30px;margin-right:-600px;" data-toggle="modal" data-target="#sipclient"><img src="assets/img/icons8-phone-bubble-64_1.png" style="width:50px;height:50px;border-radius:10px;" /></button></span>
+
+                            <div class="input-group-prepend col-3">
+                                <span class="input-group-text" id="inputGroupPrepend3"><label class="form-label danger" style="font-size:large;font-weight:bold;color:cadetblue;">المتصل</label><input type="text" class="btn-warning" id="caller" name="caller" style="font-family:Calibri;font-weight:bold;font-size:large;color:white;" /></span>
+                            </div>
+
+                            <div class="input-group-prepend col-3" style="margin-left:20px;">
+
+                                <span class="input-group-text" id="inputGroupPrepend3">
+
+                                    <label class="form-label danger" style="        font-size: large;
+        font-weight: bold;
+        color: cadetblue;">.العداد</label>
+
+                                    <input type="text" class="form-text warning" id="timmer" name="timmer" style="font-family:Calibri;font-weight:bold;font-size:medium;" disabled />
+                                </span>
+
+                            </div>
+
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;
+                            &nbsp;&nbsp;
+
+                            <div class="row form-horizontal" style="margin-right:-10px;">
+
+                                <jqxButton #apps style="border-radius:70px;margin-top:20px;background-color:white;border-color:white;" id="apps"
+                                           [width]="100" [height]="80">
+                                    <img width="50" height="50" src="assets/img/database_view_400px.png" />
+                                    <label class="danger">المكالمات</label>
+                                </jqxButton>
+
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+
+                                <jqxButton #issabel [width]="100" [height]="80" style="border-radius:70px;margin-top:20px;background-color:white;border-color:white;" id="issabel">
+                                    <img width="50" height="50" src="assets/img/voip_480px.png" />
+                                    <label class="danger">السابقة</label>
+
+                                </jqxButton>
+
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+
+
+
+                                <jqxPopover [height]="550" class="float-right" style="margin-top:-20px;margin-left:150px;" [showCloseButton]="true" [selector]="'#issabel'" [title]="'Tools'"
+                                            [arrowOffsetValue]="50">
+                                    <ul class="app-list">
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/icons8-calendar-100.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+
+                                                    <h6 style="color:deeppink;font-family:Calibri;font-weight:bold;background-color:antiquewhite;">اخر 3 مكالمات</h6>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/id-card-2002398-1688532.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    <h6 style="color:deeppink;font-family:Calibri;font-weight:bold;background-color:antiquewhite;">محصلة الاسبوع</h6>
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/search-property-256.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    <h6 style="color:deeppink;font-family:Calibri;font-weight:bold;background-color:antiquewhite;">ملاحظات 3 ايام</h6>
+
+                                                </span>
+                                            </span>
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;" (click)="OpenCalender()"><img src="assets/img/search-property-256.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    <h6 style="color:deeppink;font-family:Calibri;font-weight:bold;background-color:antiquewhite;">جدولة الملاحظات</h6>
+
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;" (click)="OpenTabs()"><img src="assets/img/reports.jpg" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    <h6 style="color:deeppink;font-family:Calibri;font-weight:bold;background-color:antiquewhite;">    مكالمات مهمة</h6>
+
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;" (click)="OpenEditor()"><img src="assets/img/notes.jpg" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    <h6 style="color:deeppink;font-family:Calibri;font-weight:bold;background-color:antiquewhite;">    ملاحظات مهمة</h6>
+
+                                                </span>
+                                            </span>
+                                        </li>
+
+
+                                    </ul>
+                                </jqxPopover>
+
+
+                                <jqxPopover [height]="550" class="float-right" [showCloseButton]="true" [selector]="'#apps'" [title]="'Applications'"
+                                            [arrowOffsetValue]="50">
+                                    <ul class="app-list">
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/Solr.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    SolrIntegration
+                                                </span>
+                                            </span>
+                                        </li>
+
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/elasticsearch.jpg" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    ElasticSearch
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/hadoopsearch.jpg" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    Hadoop
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/hadoopsearch.jpg" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    HadoopHUE
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/hbase.jpg" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    HBase
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/hive.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    HiveQuery
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/icons8-end-call-female-64.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    CurrentCall
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/icons8-table-properties-96.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    ViewProps
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="app-list-item hover-white">
+                                                <span style="border-radius:30px;"><img src="assets/img/icons8-edit-64.png" width="60" height="60" /></span>
+                                                <span class="app-list-name">
+                                                    تعديل البيانات
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                    </ul>
+                                </jqxPopover>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</section>
+
+<section class="grid_6" style="overflow-x:hidden;overflow-y:hidden;height:800px;">
+    <div class="block-border" style="overflow-x:hidden;overflow-y:hidden;height:800px;">
+        <div class="block-content" style="overflow-x:hidden;overflow-y:hidden;height:800px;">
+            <h1>DatatTable</h1>
+
+
+
+            <jqxTabs [width]="'100%'" [height]="800">
+                <ul style="margin-left: 30px;">
+                    <li class="btn-info" (click)="RefreshTab();Tabs()">جميع المكالمات  <img src="assets/img/home_96px.png" width="35" height="35" /></li>
+                    <li class="btn-warning">ReceiveCall</li>
+                    <li class="btn-danger" (click)="RefreshTab();Tabs()">ملاحظات المتصل الحالي  <img src="assets/img/support_480px.png" width="35" height="35" /></li>
+                    <li class="btn-info" (click)="RefreshTab();Tabs()">سجل المتصل <img src="assets/img/search_folder_480px.png" width="35" height="35" /></li>
+                    <li class="btn-warning" (click)="RefreshTab();Tabs()">تصنيف حسب اداة العنف <img src="assets/img/edit_folder_96px.png" width="35" height="35" /></li>
+                    <li class="btn-warning" (click)="RefreshTab();Tabs()">الحالات المتابعة  <img src="assets/img/live_folder_480px.png" width="35" height="35" /></li>
+                    <li class="btn-warning" (click)="RefreshTab();Tabs()">   مكالمات لم يتم الرد عليها  <img src="assets/img/hand_cursor_512px.png" width="35" height="35" /></li>
+                    <li class="btn-warning" (click)="RefreshTab();Tabs()">مكالمات تمت اجابتها  <img src="assets/img/hand_cursor_512px.png" width="35" height="35" /></li>
+
+                    <li class="btn-info" (click)="Tabs();RefreshTab()"><img src="assets/img/bulleted_list_208px.png" width="35" height="35" /> Last 200 Calls </li>
+                    <li class="btn-warning" (click)="Tabs();RefreshTab()"><img src="assets/img/binder_208px.png" width="35" height="35" /> Profile</li>
+                    <li class="btn-info" (click)="Tabs();RefreshTab()"><img src="assets/img/moleskine_480px.png" width="35" height="35" /> Person Profile</li>
+
+                </ul>
+                <div>
+
+                    <div class="row">
+                        <form role="form" class="needs-validation gj-width-full" novalidate style="margin-right:15px;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;width:100%;">
+                            <div class="row gj-width-full" style="overflow-x:hidden;overflow-y:hidden;width:100%;">
+                                <div class="panel-default row panel-body gj-width-full " style="right: inherit;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;">
+                                    <div class="panel-heading panel-blue-grey row" style="margin-right:30px;">
+                                        <div class="panel-heading-btn">
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <h4 class="panel-title">DataFrame <span class="label label-success">NEW</span></h4>
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="margin-right:25px;width:100%;">
+
+                                        <div id="dataTable" style="width:89%;"></div>
+
+                                    </div>
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <form role="form" class="needs-validation gj-width-full" novalidate style="margin-right:15px;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;width:100%;">
+                            <div class="row gj-width-full" style="overflow-x:hidden;overflow-y:hidden;width:100%;">
+                                <div class="panel-default row panel-body gj-width-full " style="right: inherit;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;">
+                                    <div class="panel-heading panel-blue-grey row" style="margin-right:30px;">
+                                        <div class="panel-heading-btn">
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <h4 class="panel-title">DataFrame <span class="label label-success">NEW</span></h4>
+                                    </div>
+
+                                    <div class="row" style="margin-right:40px;width:100%;">
+                                        <div class="col-xl-12" style="margin-right:40px;width:100%;">
+
+                                            <div class="panel-default panel-body ">
+
+                                                <div class="panel-heading panel-blue-grey row">
+                                                    <div class="panel-heading-btn">
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="panel-content p-0 row" style="right:inherit;overflow-x:hidden;overflow-y:hidden;">
+                                                    <div class="panel-content" style="right:inherit;direction:rtl">
+                                                        <div class="col-12 mb-3">
+                                                            <div id="registration_box">
+                                                                <h5 style="margin-left:100px;">المكالمت الواردة</h5>
+                                                                <div class="separator"><!--//--></div>
+                                                                <div id="status">&nbsp;</div>
+                                                                <div class="row-cols-xl-6">
+
+                                                                    <div class=" col-3">
+                                                                        <label for="serveraddress" class="danger fa-align-right label label-warning" title="SIP server IP address or domain name">SIP Server address: </label>
+                                                                        <input type="text" placeholder="SIP server address" class="form-text" id="serveraddress" value="" title="SIP server IP address or domain name" autocapitalize="off" />
+                                                                    </div>
+
+                                                                    <div class=" col-3">
+                                                                        <label for="username" class="danger fa-align-right label label-warning" title="SIP account username">Username: </label>
+                                                                        <input type="text" placeholder="Username" id="username" class="form-text" value="" title="SIP account username" autocapitalize="off" />
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="row-cols-xl-6">
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div class=" col-3">
+                                                                        <label for="password" class="danger fa-align-right label label-warning" title="SIP account password">Password: </label>
+                                                                        <input type="password" placeholder="Password" class="form-text" id="password" value="" title="SIP account password" autocapitalize="off" />
+                                                                    </div>
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div id="advancedsett" class="col-6">
+                                                                        <a href="javascript:;" id="btn_advanced_sett" onclick="ShowHideAdvancedSettings();" title="Show additional configuration"><img src="assets/img/icons8_admin_settings_male_128.png" width="50" height="50" /></a>&nbsp;
+                                                                    </div>
+                                                                </div>
+
+                                                                &nbsp;&nbsp;
+                                                                &nbsp;&nbsp;
+
+                                                                <div class="row-cols-xl-6">
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div id="login" class="btn_container">
+                                                                        <button class="btn btn-outline-danger" onclick="Start();" title="Login with above SIP account">Reconnect</button>&nbsp;
+                                                                    </div>
+
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+
+                                                                    <div class="row col-6">
+                                                                        <label for="destinationnr" title="SIP URI, username, extension or phone number">Transfer: </label>
+                                                                        <input type="text" placeholder="Call to" id="destinationnr" value="" title="SIP URI, username, extension or phone number" autocapitalize="off" />
+                                                                    </div>
+                                                                </div>
+
+                                                                &nbsp;&nbsp;
+                                                                &nbsp;&nbsp;
+
+                                                                <div id="call" class="row-cols-xl-6">
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div class="btn" style="width:50px;height:50px;" onclick="Accept()" title="Answer"><img src="assets/img/icons8-headset-64.png" width="50" height="50" /></div>
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div class="btn" style="width:50px;height:50px;" onclick="Hangup();" title="Disconnect call"><img src="assets/img/icons8-cancel-48.png" width="50" height="50" /></div>
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div class="btn" style="width:50px;height:50px;" onclick="ShowHideChat();" title="Show/Hide chat window"><img src="assets/img/icons8-new-message-64.png" width="50" height="50" /></div>
+                                                                    &nbsp;&nbsp;
+                                                                    &nbsp;&nbsp;
+                                                                    <div class="btn" style="width:50px;height:50px;" onclick="Transfer()" title="Transfer Call"><img src="assets/img/icons8-call-transfer-64.png" width="50" height="50" /></div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div id="video_container" style="display: none;"></div>
+                                                        <iframe allow="microphone; camera" style="display:none" height="0" width="0" id="loader"></iframe>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+
+                    <div class="row">
+                        <form role="form" class="needs-validation gj-width-full" novalidate style="margin-right:15px;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;width:100%;">
+                            <div class="row gj-width-full" style="overflow-x:hidden;overflow-y:hidden;width:100%;">
+                                <div class="panel-default row panel-body gj-width-full " style="right: inherit;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;">
+                                    <div class="panel-heading panel-blue-grey row" style="margin-right:30px;">
+                                        <div class="panel-heading-btn">
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <h4 class="panel-title">DataFrame <span class="label label-success">NEW</span></h4>
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="margin-right:25px;width:100%;">
+
+                                        <div id="dataTableProfiling" style="width:89%;"></div>
+
+                                    </div>
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="row">
+                        <form role="form" class="needs-validation gj-width-full" novalidate style="margin-right:15px;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;width:100%;">
+                            <div class="row gj-width-full" style="overflow-x:hidden;overflow-y:hidden;width:100%;">
+                                <div class="panel-default row panel-body gj-width-full " style="right: inherit;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;">
+                                    <div class="panel-heading panel-blue-grey row" style="margin-right:30px;">
+                                        <div class="panel-heading-btn">
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <h4 class="panel-title">DataFrame <span class="label label-success">NEW</span></h4>
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="margin-right:25px;width:100%;">
+
+                                        <div id="destnationCase" style="width:89%;"></div>
+
+                                    </div>
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                </div>
+
+                <div>
+
+                    <div id="grid">
+                    </div>
+
+
+                </div>
+
+                <div>
+                    <div id="gridMessages">
+                    </div>
+
+
+                </div>
+                <div>
+                    <div id="answered" style="margin-top: 5px; border-bottom: none; border-left: none;border-right: none;">
+                    </div>
+                </div>
+                <div>
+                    <div id="noanswered" style="margin-top: 5px; border-bottom: none; border-left: none;border-right: none;">
+                    </div>
+                </div>
+                <div id="dataTable200" style="width:89%;"></div>
+                <div class="row-cols-xl-6" style="overflow-y:hidden;height:800px;">
+
+                    <jqxDataTable #dataTableProfile [width]="'100%'" [height]="500" [source]="dataAdapterProfile" [columns]="columnsProfile" [rtl]="true" style="float:left;margin-right:480px;overflow-x:hidden;overflow-y:hidden;"
+                                  [pageable]="true" [columnsResize]="true" [filterable]="true" [pagerButtonsCount]="10" [filterMode]="'advanced'" [editable]="true" [showToolbar]="true" [toolbarHeight]="35" [renderToolbar]="renderToolbar">
+                    </jqxDataTable>
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    <div>
+                    </div>
+
+
+                </div>
+                <div id="dataTablePersonProfile" style="width:89%;"></div>
+                
+
+
+            </jqxTabs>
+				
+				
+            </div>
+        </div>
+</section>
+
+<div class="modal modal-dialog" id="sipclient" name="sipclient" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-content float-right" style="margin-left:80px;overflow-y:auto;">
+        <div class="modal-header">
+            <div class="panel-heading panel-blue-grey row">
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+
+            <button type="button" style="float:left;margin-left:-2px;" class="close float-left" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fal fa-times"></i></span>
+            </button>
+        </div>
+
+        <div class="modal-body row" style="overflow:auto;">
+
+            <div class="panel-default panel-body" style="margin-left:200px;">
+
+                <div class="panel-heading panel-blue-grey row">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                    </div>
+
+                </div>
+
+                <div class="panel-content p-0 row" style="right:inherit;overflow-x:auto;margin-right:-30px;">
+                    <div class="panel-content" style="right:inherit;direction:rtl">
+                        <div class="col-12 mb-3">
+                            <div id="registration_box">
+                                <h5 style="margin-left:100px;">تسجيل الدخول</h5>
+                                <div class="separator"><!--//--></div>
+                                <div id="status">&nbsp;</div>
+                                <div class="row-cols-xl-6">
+
+                                    <div class=" col-3">
+                                        <label for="serveraddress" class="danger fa-align-right label label-warning" title="SIP server IP address or domain name">SIP Server address: </label>
+                                        <input type="text" placeholder="SIP server address" class="form-text" id="serveraddress" name="serveraddress" value="" title="SIP server IP address or domain name" autocapitalize="off" />
+                                    </div>
+
+                                    <div class=" col-3">
+                                        <label for="username" class="danger fa-align-right label label-warning" title="SIP account username">Username: </label>
+                                        <input type="text" placeholder="Username" id="username" class="form-text" value="" title="SIP account username" autocapitalize="off" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row-cols-xl-6">
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    <div class=" col-3">
+                                        <label for="password" class="danger fa-align-right label label-warning" title="SIP account password">Password: </label>
+                                        <input type="password" placeholder="Password" class="form-text" id="password" value="" title="SIP account password" autocapitalize="off" />
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    <div id="advancedsett" class="col-6">
+                                        <a href="javascript:;" id="btn_advanced_sett" onclick="ShowHideAdvancedSettings();" title="Show additional configuration"><img src="assets/img/icons8_admin_settings_male_128.png" width="50" height="50" /></a>&nbsp;
+                                    </div>
+                                </div>
+
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+
+                                <div class="row-cols-xl-6" style="margin-right:17px;">
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    <div id="login" class="btn_container">
+                                        <button class="btn btn-outline-danger" onclick="Start();" title="Login with above SIP account">Register</button>&nbsp;
+                                    </div>
+
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+
+                                    <div class="row col-6">
+                                        <label for="destinationnr" title="SIP URI, username, extension or phone number">Destination: </label>
+                                        <input type="text" placeholder="Call to" id="destinationnr" value="" title="SIP URI, username, extension or phone number" autocapitalize="off" />
+                                    </div>
+                                </div>
+
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;
+
+                                <div id="call" class="row-cols-xl-6" style="margin-left:40px;">
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    <div class="btn" style="width:50px;height:50px;" (click)="Call()" title="Initiate call to destination SIP URI or number"><img src="assets/img/icons8-sip-dialer-50.png" width="50" height="50" /></div>
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    <div class="btn" style="width:50px;height:50px;" onclick="Hangup();" title="Disconnect call"><img src="assets/img/icons8-call-disconnected-80.png" width="50" height="50" /></div>
+                                    &nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                                    <div class="btn" style="width:50px;height:50px;" onclick="ShowHideChat();" title="Show/Hide chat window"><img src="assets/img/icons8-new-message-64.png" width="50" height="50" /></div>
+                                </div>
+                                <br />
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary ui-icon-cancel" data-dismiss="modal">اغلاق</button>
+                                    <button class="btn btn-primary ui-icon-plus"> حفظ </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+

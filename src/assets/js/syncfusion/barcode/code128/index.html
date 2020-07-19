@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Barcode Code 128 Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Code 128 in Javascript (ES5) Barcode Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/barcode">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/barcode">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/barcode/ean8/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/barcode/code128A/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Code 128 in Javascript (ES5) Barcode Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/barcode/default.html">
+                                <span>Barcode</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Code 128</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>
+        This sample visualizes a barcode image that presents alphanumeric combinations. Code 128 barcode consists of a start character, data digits, a modulo 103 check digit, and a stop character.
+    </p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="col-lg-8 control-section" style="width: 64%">
+    <style>
+        .column-style {
+            display: table;
+            height: 35px;
+            padding-right: 4px;
+            padding-left: 0px;
+            width: calc((100% - 12px) / 3);
+        }
+
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .row-header {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .labelstyle {
+            padding-top: 10px;
+            float: left;
+            padding-right: 10px
+        }
+
+        .propertystyle {
+            padding-top: 22px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .sb-child-row {
+            margin-top: 8px;
+        }
+
+        .center {
+            margin-left: 14px;
+            margin-right: 17px;
+            margin-top: 14px;
+            min-width: 280px;
+            width: auto;
+            border: 2px solid lightgray;
+            min-height: 40%;
+            padding-top: 35px;
+        }
+
+        .col-lg-4-property-section {
+            width: 36%;
+        }
+
+        .rightProperty {
+            margin-top: 10px;
+            width: 16.66666667%;
+            float: left;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .textProperty {
+            width: 81%;
+            padding-left: 0px;
+            padding-right: 0;
+            float: left;
+            position: relative;
+            min-height: 1px;
+        }
+
+        .sb-mobile-prop-pane .svgTextClass {
+            width: 40px;
+            padding-left: 24px;
+        }
+
+        .svgTextClass {
+            width: 100px;
+            float: left;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+      
+
+        .sb-mobile-prop-pane .rightProperty {
+            padding-left: 2px;
+        }
+
+        .sb-mobile-prop-pane .textPropertyClass {
+            padding-left: 30px;
+        }
+
+        .sb-mobile-prop-pane .textProperty {
+            padding-left: 30px;
+            width: 77%
+        }
+
+        .textPropertyClass {
+            width: 83.33333333%;
+            float: left;
+            padding-left: 0px;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+        }
+
+        .allowedText {
+            margin-left: 14px;
+            margin-right: 17px;
+            margin-top: 14px;
+            width: auto;
+            height: auto;
+        }
+
+        .errorMessage {
+            margin-left: 14px;
+            margin-right: 17px;
+            margin-top: 14px;
+            width: auto;
+            height: auto;
+        }
+
+        .errorMessage {
+            margin-left: 14px;
+            margin-right: 17px;
+            margin-top: 14px;
+            width: auto;
+            height: auto;
+        }
+
+
+        .top {
+            margin-top: 10px;
+        }
+
+        .centercontrol {
+            margin: auto;
+            width: 50%;
+            height: 50%;
+        }
+
+        #password-info {
+            position: absolute;
+            margin-top: 30px;
+        }
+    </style>
+    <div class="content-wrapper" style="width: 100%;height: 590px;">
+        <div class="center">
+            <div class="centercontrol" id="barcode"></div>
+        </div>
+        <div class="allowedText">
+            <span style="font-weight: 600;"> Allowed Input characters :</span> support 0-9 A-Z a-z and special character
+        </div>
+
+    </div>
+</div>
+
+<div class="col-lg-4 property-section" style="padding-right: 0px;
+padding-left: 18px;">
+    <div class="property-panel-header">
+        Appearance
+    </div>
+    <div id="propertypanel" class="e-remove-selection">
+        <div class="property-section-content">
+            <div class="row sb-child-row">
+                <div class="col-xs-2 top" style="padding-left: 0px;">
+                    Value
+                </div>
+                <div class="col-xs-10" style="padding-left: 0px">
+                    <form id="form-element" class="form-horizontal">
+                        <div id="barcodevaluediv">
+                            <input type="text" id="barcodeValue" name="password" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row sb-child-row">
+                <div>
+                    <div class="col-xs-2 top" style="padding-left: 0px;padding-right: 20px;">
+                        Width
+                    </div>
+                    <div class="col-xs-3" style="width: 33%;padding-left: 0px">
+                        <input type="text" id="width">
+                    </div>
+                </div>
+                <div>
+                    <div class="rightProperty">
+                        Height
+                    </div>
+                    <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                        <input type="text" id="height">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row sb-child-row" style="margin-top: 20px;">
+                <div class="col-xs-6" style="padding-left: 0px;">
+                    <div class="col-xs-1" style="padding-left: 0px;"><input type="checkbox" id="textVisibility" unchecked="false">
+                    </div>
+                    <div class="col-xs-10">Text Visibility</div>
+                </div>
+                <div class="col-xs-4" style="padding-left: 0;margin-left: 13px;">
+                    <div class="col-xs-1" style="padding-left: 0px;"><input type="checkbox" id="svgMode" unchecked="false"></div>
+                    <div class="svgTextClass">SVG Mode</div>
+                </div>
+
+
+
+
+            </div>
+            <div class="row sb-child-row">
+                <div style="margin-top: 15px">
+                    <div class="col-xs-2" style="margin-top: 5px;padding-left: 0px;">BG Color</div>
+                    <div class="col-xs-4" style="padding-left: 0px;">
+                        <input id="bgColor" type="color">
+                    </div>
+                    <div class="col-xs-2" style="width: 18%;padding-left: 12px;margin-top: 5px;">Fore Color</div>
+                    <div class="col-xs-3" style="padding-left: 2px;">
+                        <input id="foreColor" type="color">
+                    </div>
+                </div>
+            </div>
+            <div class="property-panel-header">
+                Margin
+            </div>
+            <div class="row sb-child-row">
+                <div class="col-xs-2 top" style="padding-left: 0px;"> Left</div>
+                <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                    <input type="text" id="marginLeft">
+                </div>
+                <div class="rightProperty">Right</div>
+                <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                    <input type="text" id="MarginRight">
+                </div>
+            </div>
+
+            <div class="row sb-child-row">
+                <div class="col-xs-2 top" style="padding-left: 0px;">Top</div>
+                <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                    <div style="padding-bottom: 8px">
+                        <input type="text" id="marginTop">
+                    </div>
+                </div>
+                <div class="rightProperty">Bottom</div>
+                <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                    <input type="text" id="MarginBottom">
+                    <!-- </div> -->
+                </div>
+            </div>
+
+            <div class="property-panel-header">
+                Text Properties
+            </div>
+            <div class="row sb-child-row">
+                <div class="col-xs-2 top" style="padding-left: 0px;">Top</div>
+                <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                    <input type="text" id="TextmarginTop">
+                </div>
+                <div class="rightProperty">Bottom</div>
+                <div class="col-xs-3" style="width: 33%;padding-left: 0px;">
+                    <input type="text" id="TextMarginBottom">
+                </div>
+            </div>
+
+            <div class="row sb-child-row">
+                <div class="col-xs-2 top" style="padding-left: 0px;">
+                    Position
+                </div>
+                <div class="textPropertyClass">
+                    <input type="text" id="textPosition">
+
+                </div>
+            </div>
+            <div class="row sb-child-row">
+                <div class="col-xs-2 top" style="padding-left: 0px;">
+                    Alignment
+                </div>
+                <div class="textPropertyClass">
+                    <input type="text" id="textAlignment">
+                </div>
+            </div>
+            <div class="row sb-child-row">
+                <div class="col-xs-3 top" style="width: 17%;padding-left: 0px;">
+                    Display Text
+                </div>
+                <div class="textProperty">
+                    <input id="displayText">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            
+        This sample shows how to create the Code 128 barcode type with alphanumeric characters. The `type` property can be used to set the barcode type as `Code128`. 
+    
+    
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

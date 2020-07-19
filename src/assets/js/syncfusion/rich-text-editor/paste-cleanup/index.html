@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Rich Text Editor Paste from MS Word Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Paste from MS Word in Javascript (ES5) Rich Text Editor Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/rich-text-editor">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/rich-text-editor">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/rich-text-editor/inline/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/rich-text-editor/iframe/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Paste from MS Word in Javascript (ES5) Rich Text Editor Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/rich-text-editor/default.html">
+                                <span>Rich Text Editor</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Paste from MS Word</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>This example demonstrates the paste cleanup feature of the Rich Text Editor control. Copy your content from MS Word or other website, and paste it within the editor to cleanup.</p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="col-lg-8 control-section">
+    <div class="control-wrapper">
+        <div class="sample-container">
+            <div class="default-section">
+                <div id="defaultRTE">
+                    <p>RichTextEditor is a WYSIWYG editing control which will reduce the effort for users while trying to express their formatting word content as HTML or Markdown format.</p>
+                    <p><b>Paste Cleanup properties:</b></p>
+                    <ul>
+                        <li>
+                            <p>prompt - specifies whether to enable the prompt when pasting in RichTextEditor.</p>
+                        </li>
+                        <li>
+                            <p>plainText - specifies whether to paste as plain text or not in RichTextEditor.</p>
+                        </li>
+                        <li>
+                            <p>keepFormat- specifies whether to keep or remove the format when pasting in RichTextEditor.</p>
+                        </li>
+                        <li>
+                            <p>deniedTags - specifies the tags to restrict when pasting in RichTextEditor.</p>
+                        </li>
+                        <li>
+                            <p>deniedAttributes - specifies the attributes to restrict when pasting in RichTextEditor.</p>
+                        </li>
+                        <li>
+                            <p>allowedStyleProperties - specifies the allowed style properties when pasting in RichTextEditor.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 property-section">
+    <div title="Properties">
+        <table id="property" title="Properties">
+            <tbody>
+                <tr>
+                    <td>
+                        <div>Format Option</div>
+                    </td>
+                    <td>
+                        <div>
+                            <select id="formattingOption"> 
+                                <option value="prompt">Prompt</option>
+                                <option value="plainText">Plain Text</option>
+                                <option value="keepFormat">Keep Format</option>
+                                <option value="cleanFormat">Clean Format</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Denied Tags </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input id="deniedTags" type="text" class="e-input" placeholder="&apos;img[!href]&apos;, &apos;h1&apos;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Denied Attributes </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input id="deniedAttributes" type="text" class="e-input" placeholder="&apos;id&apos;, &apos;title&apos;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Allowed Style Properties </div>
+                    </td>
+                    <td>
+                        <div>
+                            <input id="allowedStyleProperties" type="text" class="e-input" placeholder="&apos;href&apos;, &apos;style&apos;">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            The Rich Text Editor allows to paste the HTML content from MS Word or other websites. The editor cleanup the pasted HTML content by considering the following items.
+    
+        The unformatted HTML element (MOS XML format) content to standard HTML elements.
+        The MS Office prefixed style properties is converted to proper CSS style properties.
+        The unwanted tags, CSS styles, and comments are removed from the copied content.
+    
+    The following settings are available to cleanup the content in pasteCleanup settings property:
+    
+        Select any option in Format Option drop down list for the paste content.
+            
+                Select the Prompt option to invoke prompt dialog with paste options on pasting the content in editor.
+                Select the Plain Text option to paste the content as plain text.
+                Select the Keep Format option to keep the same format in the copied content.
+                Select the Clean Format option to remove the style format in the copied content.
+            
+        
+        Fill the denied tags text box to ignore the tags when pasting HTML content. For example:
+            
+                [&apos;a[!href]&apos;] - paste the content by filtering anchor tags that don&#x2019;t have the &apos;href&apos; attribute.
+                [&apos;a[href, target]&apos;] - paste the content by filtering anchor tags that have the &apos;href&apos; and &apos;target&apos; attributes.
+            
+        
+        
+        Fill the denied attributes to paste the content by filtering out these attributes from the content. For example:
+            
+                [&apos;id&apos;, &apos;title&apos;] - This will remove the attributes &apos;id&apos; and &apos;title&apos; from all tags.
+            
+        
+        
+        Fill the allowed style properties to paste the content by accepting these style attributes and removing other attributes. For example:
+            
+                [&apos;color&apos;, &apos;margin&apos;] - This will allow only the style properties &apos;color&apos; and &apos;margin&apos; in each pasted element.
+            
+        
+    
+    Injecting Module
+    The previous features were built as modules to be included in your application. For example, inject the &apos;PasteCleanup&apos; module using RichTextEditor.Inject (Toolbar, Link, Image, Count, HtmlEditor, PasteCleanup) to use the paste cleanup feature.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

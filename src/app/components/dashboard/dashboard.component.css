@@ -1,0 +1,11 @@
+mat-card {
+  margin-top: 20px;
+}
+
+mat-card mat-icon {
+  text-align: center;
+}
+
+span.teacher {
+  font-size: 12px;
+}

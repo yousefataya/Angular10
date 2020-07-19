@@ -1,0 +1,48 @@
+{ 
+   "name": "Numeric Textbox", 
+   "directory": "numerictextbox",
+   "category":"Inputs", 
+   "ftName": "numerictextbox",
+   "samples" : [
+    {"url":"default", "name": "Default Functionalities", "category":"Numeric Textbox",  "description": "The NumericTextBox is used to get the numbered inputs from the users and the currency and percentage text boxes to get the currency and percentage inputs.", "api": {
+                "NumericTextBox": [
+                    "value",
+                    "format",
+                    "min",
+                    "max",
+                    "step"
+                ]
+            }
+},
+    {"url":"range-validation", "name": "Range Validation", "category":"Numeric Textbox", "description": "The NumericTextBox has options to restrict the input value between a specific range using min, max, and strictMode properties.", "api": {
+                "NumericTextBox": [
+                    "value",
+                    "min",
+                    "max",
+                    "step"
+                ]
+           }
+},
+    {"url":"custom-format", "name": "Custom Format", "category":"Numeric Textbox", "description": "The NumericTextBox provides an option to customize the display format of the numeric value using the format property.", "api": {
+                "NumericTextBox": [
+                    "value",
+                    "format",
+                    "min",
+                    "max"
+                ]
+           }
+},
+    {"url":"restrict-decimals", "name": "Restrict Decimals", "category":"Numeric Textbox", "description": " The NumericTextBox provides an option to restrict the number of decimal values, by using the decimals property. So, it can only accept the integer value alone.", "api": {
+                "NumericTextBox": [
+                    "value",
+                    "format",
+                    "min",
+                    "max",
+                    "step",
+                    "decimals",
+                    "validateDecimalOnType"
+                ]
+           }
+}
+   ]
+}

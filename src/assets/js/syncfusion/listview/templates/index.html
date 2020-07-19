@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) ListView Templates Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Templates in Javascript (ES5) ListView Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/listview">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/listview">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/listview/virtualization/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/listview/group-template/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Templates in Javascript (ES5) ListView Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/listview/default.html">
+                                <span>ListView</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Templates</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>This sample demonstrates the Template functionalities of the ListView. Click any news header or thumbnail to open the complete article. To navigate back to the news list, click the back icon at the top left area.
+    </p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="col-lg-12 control-section">
+
+    <!-- ListView element -->
+    <div id="listview_template" tabindex="1"></div>
+</div>
+
+
+
+
+<style>
+    /* ListView position alignment */
+
+    #listview_template.e-listview {
+        max-width: 400px;
+        margin: auto;
+        border-radius: 2px;
+        height: 470px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    /* ListView header alignment */
+
+    #listview_template.e-listview .e-list-header #list-logo {
+        margin-top: 2.5px;
+        position: absolute;
+        right: 20px;
+    }
+
+    /* ListView template customization */
+
+    @font-face {
+        font-family: 'Bookmarks';
+        src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    #listview_template.e-listview.e-list-template .e-list-wrapper.e-list-avatar:not(.e-list-badge) {
+        padding-left: 122px;
+    }
+
+    #listview_template.e-listview.e-list-template .e-list-wrapper.e-list-multi-line.e-list-avatar .e-avatar {
+        background: transparent;
+        width: 90px;
+        height: 90px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #listview_template.e-listview .e-list-item.e-hover {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    #listview_template.e-listview #list-logo {
+        float: right;
+    }
+
+    #listview_template.e-listview.e-list-template .clearfix.desc.e-list-wrapper {
+        padding-left: 16px;
+    }
+
+    #listview_template.e-listview.e-list-template .clearfix.desc.e-list-wrapper p {
+        text-indent: 50px;
+    }
+
+    #listview_template.e-listview .e-list-item.e-has-child.e-hover {
+        background-color: #eee;
+        transition: 0.8s;
+    }
+
+    #listview_template.e-listview .e-list-item.e-active {
+        background-color: white;
+    }
+
+    #listview_template.e-listview .e-list-item.e-level-1.e-has-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    #listview_template.e-listview .e-list-item.e-level-1.e-has-child:last-child {
+        border-bottom: 0px solid rgba(0, 0, 0, 0.12)
+    }
+
+    #listview_template.e-listview .timeStamp {
+        font-size: 10px;
+        padding: 4px 0;
+    }
+
+    #listview_template.e-listview .bookmark,
+    #listview_template.e-listview .share,
+    #listview_template.e-listview .comments {
+        cursor: pointer;
+    }
+
+    #listview_template.e-listview .bookmark::before,
+    #listview_template.e-listview .share::before,
+    #listview_template.e-listview .comments::before {
+        color: grey;
+        font-family: 'Bookmarks';
+        margin-left: 3px;
+    }
+
+    #listview_template.e-listview .bookmark::before {
+        content: "\e700";
+        margin-right: 12px;
+        font-size: 16px;
+    }
+
+    #listview_template.e-listview .share::before {
+        content: "\e701";
+        margin-right: 3px;
+        font-size: 13px;
+    }
+
+    #listview_template.e-listview .comments::before {
+        content: "\e703";
+        margin-right: 12px;
+        font-size: 15px;
+    }
+
+    /* ListView theme customization */
+
+    .highcontrast #listview_template.e-listview .bookmark::before,
+    .highcontrast #listview_template.e-listview .share::before,
+    .highcontrast #listview_template.e-listview .comments::before {
+        color: #fff;
+    }
+
+    .highcontrast #listview_template.e-listview .e-list-item.e-active {
+        background-color: #333333;
+        color: #fff;
+    }
+
+    .material #listview_template.e-listview .e-has-child:hover .e-list-item-header {
+        color: #E91E63;
+        transition: 0.5s;
+    }
+
+    .fabric #listview_template.e-listview .e-has-child:hover .e-list-item-header {
+        color: #275395;
+        transition: 0.5s;
+    }
+
+    .bootstrap #listview_template.e-listview .e-has-child:hover .e-list-item-header {
+        color: #0644b4;
+        transition: 0.5s;
+    }
+
+    .highcontrast #listview_template.e-listview .e-list-item.e-hover {
+        background-color: #333333;
+        color: #fff;
+        border-color: #333333;
+    }
+
+    .highcontrast #listview_template.e-listview .e-list-item.e-has-child.e-hover {
+        transition: 0s;
+        background-color: #685708;
+        border-color: #fff;
+        color: #fff;
+    }
+
+    /* Media query */
+
+    @media screen and (max-width: 450px) {
+        #listview_template.e-listview #list-logo {
+            display: none
+        }
+    }
+	
+	.bootstrap4 #listview_template.e-listview .bookmark::before,
+    .bootstrap4 #listview_template.e-listview .share::before,
+    .bootstrap4 #listview_template.e-listview .comments::before {
+        color: #495057;
+    }
+</style>
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            The above template represents the customizability of the ListView component. Here, data is loaded from JSON and its value is directly mapped to our ListView datasource to load the content.
+
+    This sample, also have the additional elements like bookmark, comments, and share that can be customized to perform the appropriate action by adding our own events.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="datasource.js"  type="text/javascript"></script>
+
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Badge Types Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Types in Javascript (ES5) Badge Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/badge">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/badge">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/badge/default/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/badge/notification/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Types in Javascript (ES5) Badge Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/badge/default.html">
+                                <span>Badge</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Types</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>This sample demonstrates 8-predefined badge colors for various scenarios which can be applied from the modifier class.</p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="col-lg-12 control-section">
+    <div class="sample_container badge-types">
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <div class="badge-block-first">
+                        <button class="e-btn">Primary</button>
+                        <!-- Primary Colored Notification Badge -->
+                        <span class="e-badge e-badge-primary e-badge-notification e-badge-overlap">10</span>
+                    </div>
+                </div>
+                <div class="e-card-content text">
+                    <div>
+                        <code>.e-badge-primary</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn">Secondary
+                        <!-- Secondary Colored Notification Badge -->
+                        <span class="e-badge e-badge-secondary e-badge-notification e-badge-overlap">20</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-secondary</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn">Success
+                        <!-- Success Colored Notification Badge -->
+                        <span class="e-badge e-badge-success e-badge-notification e-badge-overlap">25</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-success</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn">Danger
+                        <!-- Danger Colored Notification Badge -->
+                        <span class="e-badge e-badge-danger e-badge-notification e-badge-overlap">30</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-danger</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn">Warning
+                        <!-- Warning Colored Notification Badge -->
+                        <span class="e-badge e-badge-warning e-badge-notification e-badge-overlap">40</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-warning</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn">Info
+                        <!-- Info Colored Notification Badge -->
+                        <span class="e-badge e-badge-info e-badge-notification e-badge-overlap">45</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-info</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn e-info">Light
+                        <!-- Light Colored Notification Badge -->
+                        <span class="e-badge e-badge-light e-badge-notification e-badge-overlap">50</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-light</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="badge-block">
+            <div class="e-card e-badge-showcase">
+                <div class="e-card-content">
+                    <button class="e-btn e-info">Dark
+                        <!-- Dark Colored Notification Badge -->
+                        <span class="e-badge e-badge-dark e-badge-notification e-badge-overlap">75</span>
+                    </button>
+                </div>
+                <div class="e-card-content text">
+                    <code>.e-badge-dark</code>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .fabric .sample_container.badge-types .e-badge-showcase.e-card {
+        background: transparent;
+    }
+
+    .e-bigger .sample_container.badge-types .e-btn {
+        padding: 0px 10px 2px 10px;
+    }
+
+    .highcontrast .sample_container.badge-types .e-btn:focus {
+        outline: 0px;
+        color: white;
+    }
+
+    .control-section {
+        overflow: auto;
+        padding-top: 40px;
+    }
+
+    .badge-types .e-btn {
+        position: relative;
+    }
+
+    /* Media queries for Multiple devices */
+
+    @media only screen and (max-width: 890px) {
+        .sample_container.badge-types {
+            max-width: 311px;
+            margin: auto;
+            margin-top: 0px;
+        }
+        .e-card-content.text {
+            font-size: 10px;
+        }
+        .e-badge-showcase.e-card {
+            width: 135px;
+        }
+    }
+
+    @media only screen and (min-width: 890px) {
+        .sample_container.badge-types {
+            max-width: 745px;
+            margin: auto;
+            margin-top: 24px;
+        }
+        .e-badge-showcase.e-card {
+            width: 160px;
+        }
+    }
+
+    @media only screen and (max-width: 365px) {
+        .sample_container.badge-types {
+            max-width: 146px;
+        }
+    }
+
+    .badge-types .e-btn {
+        text-transform: none;
+    }
+
+    .sample_container.badge-types .badge-block {
+        margin: 2px 2px 2px 2px;
+        vertical-align: top;
+        display: inline-block;
+    }
+
+    .highcontrast .sample_container.badge-types code {
+        border: 0;
+    }
+
+    .sample_container.badge-types .badge-block-first {
+        position: relative;
+    }
+
+    /* Card Customization */
+
+    .e-badge-showcase.e-card {
+        height: 100px;
+        padding: 5px;
+        margin: 5px 3px;
+        box-shadow: none;
+        border-radius: 8px;
+        border: 1px solid #f1f1f1;
+        background-color: #f1f1f1;
+    }
+
+    .highcontrast .e-badge-showcase.e-card {
+        background-color: #000;
+    }
+
+    .e-badge-showcase.e-card .e-card-header .e-card-header-title {
+        align-self: center;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-shadow: #eaeaea 1px 1px 2px;
+    }
+
+    .e-badge-showcase.e-card .e-card-header .e-card-sub-title {
+        color: rgba(0, 0, 0, 0.75);
+        white-space: pre-line;
+        font-size: 14px;
+        text-shadow: #eaeaea 1px 1px 2px
+    }
+
+    .e-badge-showcase.e-card .e-card-header .e-card-sub-title p {
+        margin: 0;
+    }
+
+    .e-badge-showcase.e-card .e-card-content {
+        overflow: visible;
+        align-self: center;
+        padding: 0 0 10px 0;
+        overflow: initial;
+    }
+</style>
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            The badge supports the following 8 different essential colors for various situations. All the classes should be added
+        with
+        .e-badge class.
+    
+    
+        Primary: The
+            .e-badge-primary class applies the primary color.
+        Secondary: The
+            .e-badge-secondary class applies the secondary color.
+        Success: The
+            .e-badge-success class applies the success color.
+        Danger: The
+            .e-badge-danger class applies the danger color.
+        Warning: The
+            .e-badge-warning class applies the warning color.
+        Info: The
+            .e-badge-info class applies the info color.
+        Light: The
+            .e-badge-light class applies the light color.
+        Dark: The
+            .e-badge-dark class applies the dark color.
+    
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="datasource.js"  type="text/javascript"></script>
+
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

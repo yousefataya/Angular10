@@ -1,0 +1,637 @@
+﻿<style type="text/css">
+
+    .register-table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        .register-table td
+
+        .register-table tr {
+            margin: 0px;
+            padding: 2px;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+    h3 {
+        display: inline-block;
+        margin: 0px;
+    }
+</style>
+
+<script>
+    'use strict';
+    var classHolder = document.getElementsByTagName("BODY")[0],
+        themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) : {},
+        themeURL = themeSettings.themeURL || '',
+        themeOptions = themeSettings.themeOptions || '';
+    if (themeSettings.themeOptions) {
+        classHolder.className = themeSettings.themeOptions;
+        console.log("%c✔ Theme settings loaded", "color: #148f32");
+    }
+
+    else {
+        console.log("Heads up! Theme settings is empty or does not exist, loading default settings...");
+    }
+
+    if (themeSettings.themeURL && !document.getElementById('mytheme')) {
+
+        var cssfile = document.createElement('link');
+        cssfile.id = 'mytheme';
+        cssfile.rel = 'stylesheet';
+        cssfile.href = themeURL;
+        document.getElementsByTagName('head')[0].appendChild(cssfile);
+
+    }
+
+    var saveSettings = function () {
+        themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function (item) {
+            return /^(nav|header|mod|display)-/i.test(item);
+
+        }).join(' ');
+
+        if (document.getElementById('mytheme')) {
+            themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+        };
+
+        localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+    }
+
+    var resetSettings = function () {
+        localStorage.setItem("themeSettings", "");
+    }
+</script>
+
+<script>
+    function validate() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }
+</script>
+<div class="page-header-fixed gj-width-full row-cols-xl-6 col-xl-12 color-primary-100 info" style="background-color:cadetblue;">
+
+    <div style="float:right;margin-right:-12px;">
+        <img src="assets/img/sawa.jpg" width="150" height="150" />
+    </div>
+
+    <div style="float:left;">
+        <img src="assets/img/sawa_latest.jpg" style="opacity:0.5;" width="150" height="150" />
+        <div class="jqx-header-office form-inline float-right row col-xl-12" style="margin-left:350px;margin-top:-80px;">
+            <div class="row">
+                
+                <div class="col-3">
+                    <jqxButton #asterisk [width]="80" [height]="80" style="border-radius:50px;margin-top:-30px;background-color:white;border-color:white;margin-left:280px;" id="asterisk">
+                        <img width="50" height="50" src="assets/img/icons8-end-call-80.png" />
+                        <label class="danger ">Reports</label>
+                    </jqxButton>
+                </div>
+
+                <div class="col-3" style="margin-left:-40px;margin-top:70px;">
+                    <jqxToolbar [width]="750" [height]="80"
+                                [tools]="tools" [initTools]="initTools">
+                    </jqxToolbar>
+                </div>
+
+            </div>
+            
+            <jqxWindow #windowReference [width]="700" [height]="500" 
+                       [maxHeight]="550" [minHeight]="200" [maxWidth]="700" [minWidth]="200"
+                       [showCollapseButton]="true">
+                <div #windowHeader>
+                    <span>
+                        <img src="assets/img/icons8-phone-bubble-64.png" alt="" style="margin-right: 15px" />Sip Issabel
+                    </span>
+                </div>
+                <div style="overflow: hidden;" #windowContent>
+                    <jqxTabs [width]="700" [height]="500">
+                        <ul style="margin-left: 30px;">
+                            <li>Dialer</li>
+                            <li>ReceiveCall</li>
+                            <li>Recording</li>
+                            <li>Disconnevted</li>
+                            <li>MissingCall</li>
+                        </ul>
+                        <div>
+
+                            <div class="row">
+                                <form role="form" class="needs-validation gj-width-full" novalidate style="margin-right:15px;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;width:100%;">
+                                    <div class="row gj-width-full" style="overflow-x:hidden;overflow-y:hidden;width:100%;">
+                                        <div class="panel-default row panel-body gj-width-full " style="right: inherit;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;">
+                                            <div class="panel-heading panel-blue-grey row" style="margin-right:30px;">
+                                                <div class="panel-heading-btn">
+                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                                </div>
+                                                <h4 class="panel-title">DataFrame <span class="label label-success">NEW</span></h4>
+                                            </div>
+
+                                            <div class="row" style="margin-right:40px;width:100%;">
+                                                <div class="col-xl-12" style="margin-right:40px;width:100%;">
+
+                                                    <div class="row">
+
+                                                        <div class="col-6">
+                                                            <label class="form-label float-right label-warning" style="font-size:small" for="date"> التاريخ<span class="text-danger">*</span> </label>
+                                                            <br />
+                                                            <br />
+                                                            <jqxDateTimeInput [width]="200" [height]="30" [showTimeButton]="true" [template]="'success'" style="margin-right:-1px;">
+                                                            </jqxDateTimeInput>
+                                                            <div class="invalid-tooltip left">
+                                                                ييجب ادخال التاريخ
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-6" style="margin-right:380px;margin-top:-60px;float:right;">
+                                                            <label class="form-label float-right label-warning" style="font-size:medium;margin-right:140px;float:right;" for="IpAddress">IpAddr <span class="text-danger">*</span></label>
+
+                                                            <input type="text" class="largeText" id="IpAddress" style="height:30px;width:200px;margin-left:180px;" placeholder="IpAddress" ng-controller="phone" required>
+                                                            <div class="invalid-tooltip left">
+                                                                IpAddress
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <div class="col-6">
+                                                            <label class="form-label float-right label-warning" style="font-size:small" for="date"> Username<span class="text-danger">*</span> </label>
+                                                            <br />
+                                                            <br />
+                                                            <input type="text" class="largeText" id="username" style="height:30px;width:200px;margin-left:180px;" placeholder="username" ng-controller="phone" required>
+                                                            <div class="invalid-tooltip left">
+                                                                يجب ادخال رقم الهاتف
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-6" style="margin-right:380px;margin-top:-60px;float:right;">
+                                                            <label class="form-label float-right label-warning" style="font-size:medium;margin-right:140px;float:right;" for="display">العرض <span class="text-danger">*</span></label>
+
+                                                            <input type="text" class="largeText" id="display" style="height:30px;width:200px;margin-left:180px;" placeholder="sawa.ps" ng-controller="phone" required>
+                                                            <div class="invalid-tooltip left">
+                                                                اخل sawa.ps
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="row" style="margin-top:25px;">
+
+                                                        <div class="col-6">
+                                                            <label class="form-label float-right label-warning" style="font-size:small;float:right;" for="idCard"> الرقم السري <span class="text-danger">*</span> </label>
+                                                            <br />
+                                                            <br />
+                                                            <input type="text" class="largeText" id="idCard" maxlength="150" style="height:30px;width:200px;margin-left:400px;" placeholder="الرقم السري" ng-controller="idCard" required>
+                                                            <div class="invalid-tooltip left">
+                                                                يجب ادخال الرقم السري
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-6" style="margin-top:20px;margin-right:250px;">
+                                                            <div class="panel-warning">
+
+                                                                <div class="input-group">
+                                                                    <button type="button" style="width:100px;" class="btn btn-warning ml-auto jqx-icon-save-light">تسجيل الدخول</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            &nbsp;&nbsp;
+                                            &nbsp;&nbsp;
+
+                                            &nbsp;&nbsp;
+                                            &nbsp;&nbsp;
+
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>  
+                        
+                        <div>
+                            
+
+
+                        </div>
+
+                        <div>
+                            
+
+
+                        </div>
+
+                        <div>
+                            
+
+
+                        </div>
+
+                        <div>
+                            
+
+
+                        </div>
+
+                    </jqxTabs>
+                </div>
+            </jqxWindow>
+
+
+
+            <jqxPopover class="float-right" style="margin-top:-20px;margin-left:150px;" [showCloseButton]="true" [selector]="'#asterisk'" [title]="'AsterriskTools'"
+                        [arrowOffsetValue]="50">
+                <ul class="app-list">
+
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-call-transfer-64.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                CallTransfer
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-missed-call-100.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                MiisedCalls
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-new-message-64.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                Msgs
+                            </span>
+                        </span>
+                    <li>
+                        <span  style="border-radius:30px;"><img src="assets/img/icons8-phone-bubble-64.png" width="60" height="60" /></span>
+                        <span class="app-list-name">
+                            PauseCall
+                        </span>
+                    </li>
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-sip-dialer-50.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                Dial
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-end-call-48.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                EndCalls
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-audio-64.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                AudioSettings
+                            </span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="app-list-item hover-white">
+                            <span  style="border-radius:30px;"><img src="assets/img/icons8-headset-64.png" width="60" height="60" /></span>
+                            <span class="app-list-name">
+                                HeadSetSettings
+                            </span>
+                        </span>
+                    </li>
+
+                </ul>
+            </jqxPopover>
+            <jqxNotification #timeNotification
+                             [width]="250" [opacity]="0.9" [autoOpen]="false"
+                             [autoClose]="false" [animationOpenDelay]="800" [autoCloseDelay]="5000" [template]="'info'">
+                Successfull Saved.
+            </jqxNotification>
+        </div>
+        <div>
+        </div>
+    </div>
+    <div class="jqx-header-office form-inline float-right row row-cols-xl-6" style="float:right;">
+        <div class="jqx-header-office form-inline float-right row row-cols-xl-6" style="float:right;">
+
+            <div style="float: right;margin-right:100px;margin-top:20px;border-radius:70px;" class="jqx-header-office form-inline float-right row col-xl-12">
+                <div class="row form-horizontal">
+                    <jqxButton style="border-radius:70px;margin-top:20px;background-color:white;border-color:white;" id="button"
+                               [width]="80" [height]="80">
+                        <img width="50" height="50" src="assets/img/icons8-admin-settings-male-48.png" />
+                        <label class="danger">Modules</label>
+                    </jqxButton>
+                   
+                        <jqxButton #settings [width]="80" [height]="80" style="border-radius:70px;margin-top:20px;background-color:white;border-color:white;" id="settings">
+                            <img width="50" height="50" src="assets/img/icons8-order-history-80.png" />
+                            <label class="danger">History</label>
+                        </jqxButton>
+                   
+                </div>
+                <jqxPopover class="float-right" style="margin-top:-20px;margin-left:150px;" [showCloseButton]="true" [selector]="'#settings'" [title]="'Tools'"
+                            [arrowOffsetValue]="50">
+                    <ul class="app-list">
+
+                        <li>
+                            <span class="app-list-item hover-white">
+                               <span  style="border-radius:30px;"><img src="assets/img/icons8-calendar-100.png" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    SearchByDate
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="app-list-item hover-white">
+                                 <span  style="border-radius:30px;"><img src="assets/img/id-card-2002398-1688532.png" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    SearchByIdCard
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/search-property-256.png" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    UserHistory
+                                </span>
+                            </span>
+                        <li>
+                            <span class="app-list-item hover-white">
+                               <span  style="border-radius:30px;"><img src="assets/img/search-property-256.png" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    AuditLog
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/reports.jpg" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    Reports
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/notes.jpg" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    NotesHistory
+                                </span>
+                            </span>
+                        </li>
+
+
+                    </ul>
+                </jqxPopover>
+                <jqxPopover class="float-right" [showCloseButton]="true" [selector]="'#button'" [title]="'Applications'"
+                            [arrowOffsetValue]="50">
+                    <ul class="app-list">
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/Solr.png" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    SolrIntegration
+                                </span>
+                            </span>
+                        </li>
+
+
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/elasticsearch.jpg" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    ElasticSearch
+                                </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/hadoopsearch.jpg" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    Hadoop
+                                </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/hadoopsearch.jpg" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    HadoopHUE
+                                </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/hbase.jpg" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    HBase
+                                </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="app-list-item hover-white">
+                                <span  style="border-radius:30px;"><img src="assets/img/hive.png" width="60" height="60" /></span>
+                                <span class="app-list-name">
+                                    HiveQuery
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </jqxPopover>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-wrapper text-light-lime panel-warning gj-width-full" style="direction:rtl;right:inherit;margin-left:5px;width:100%;">
+    <div class="page-inner" style="direction:rtl;right:inherit;width:100%;">
+
+        <main id="js-page-content" role="main" class="page-content warning gj-width-full" style="right:inherit;margin-left:5px;width:100%;">
+            <div class="row" style="direction:rtl;right:inherit;width:100%;">
+                
+                <div id="row" class="panel gj-width-full" style="right:inherit;margin-right:5px;width:100%;">
+
+
+                    <div class="row" style="right:inherit;overflow-x:hidden;overflow-y:hidden;">
+
+                        <div class="col-xl-12">
+                            <jqxTabs #tabsReference class="panel-content p-0 row gj-width-full" [width]="'100%'" [height]="450" [animationType]='"none"' [selectionTracker]='false' [rtl]="true" style="margin-left:25px;">
+
+                                <ul>
+                                    <li style="margin-right:50px;"> <label class="form-label float-right label label-default" style="font-family:Calibri;font-weight:bold;font-size:small;color:darksalmon;" for="age">نموذج توجهه <span class="text-danger">*</span></label></li>
+                                </ul>
+
+                                <div class="row">
+                                    <form role="form" class="needs-validation gj-width-full" novalidate style="margin-right:15px;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;width:100%;">
+                                        <div class="row gj-width-full" style="overflow-x:hidden;overflow-y:hidden;width:100%;">
+                                            <div class="panel-default row panel-body gj-width-full " style="right: inherit;direction: rtl;text-align:center;vertical-align: central;overflow-x:hidden;overflow-y:hidden;border-color:white;">
+                                                <div class="panel-heading panel-blue-grey row" style="margin-right:30px;">
+                                                    <div class="panel-heading-btn">
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                                    </div>
+                                                    <h4 class="panel-title">DataFrame <span class="label label-success">NEW</span></h4>
+                                                </div>
+
+                                                <div class="row" style="margin-right:40px;width:100%;">
+                                                    <div class="col-xl-12" style="margin-right:40px;width:100%;">
+
+                                                        <div class="row">
+
+                                                            <div class="col-3">
+                                                                <label class="form-label float-right label-warning" style="font-size:small" for="nickname"> التاريخ<span class="text-danger">*</span> </label>
+                                                                <br />
+                                                                <br />
+                                                                <jqxDateTimeInput [width]="100" [height]="30" [showTimeButton]="true" [template]="'success'" style="margin-right:-1px;">
+                                                                </jqxDateTimeInput>
+                                                                <div class="invalid-tooltip left">
+                                                                    ييجب ادخال التاريخ
+                                                                </div>
+                                                            </div>
+
+<br/>
+<br/>
+      
+
+                                                            <div class="col-6" style="margin-right:400px;margin-top:-55px;">
+                                                                <label class="form-label float-right label-warning" style="font-size:medium;margin-right:180px;" for="phone">الهاتف <span class="text-danger">*</span></label>
+                                                                <input type="text" class="largeText" id="phone" style="height:30px;width:300px;margin-left:180px;" placeholder="الهاتف" ng-controller="phone" required>
+                                                                <div class="invalid-tooltip left">
+                                                                    يجب ادخال الهاتف
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+                                                        <div class="row" style="margin-top:10px;">
+
+                                                            <div class="col-6" style="margin-top:10px;">
+                                                                <label class="form-label float-right label-warning" style="font-size:small" for="idCard"> البطاقة الشخصية <span class="text-danger">*</span> </label>
+                                                                <br />
+                                                                <br />
+                                                                <input type="text" class="largeText" id="idCard" maxlength="200" style="height:30px;width:300px;margin-left:400px;" placeholder="البطاقة الشخصية" ng-controller="idCard" required>
+                                                                <div class="invalid-tooltip left">
+                                                                    يجب ادخال البطاقة الشخصية
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                            <div class="col-6" style="margin-top:20px;">
+
+                                                                <label class="form-label float-right label  label-warning" style="font-size:small" for="social"> الحالة الاجتماعية<span class="text-danger">*</span> </label>
+                                                                <br />
+                                                                <br />
+                                                                <input type="text" class="largeText" id="social" style="height:30px;width:300px;margin-left:400px;" placeholder="الحالة الاجتماعية" ng-controller="social" required>
+                                                                <div class="invalid-tooltip left">
+                                                                    الحالة الاجتماعية
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-6" style="margin-top:20px;">
+                                                                <div class="panel-warning">
+
+                                                                    <div class="input-group">
+                                                                        <button type="button" (click)="clickOps()" style="width:100px;" class="btn btn-warning ml-auto jqx-icon-save-light">عرض بيانات</button>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                &nbsp;&nbsp;
+                                                &nbsp;&nbsp;
+
+                                                &nbsp;&nbsp;
+                                                &nbsp;&nbsp;
+
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <div class="col-6 float-left" style="float:left;margin-left:100px;margin-top:-140px;">
+                                        
+                                    </div>
+                                </div>
+
+                            </jqxTabs>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;
+					<br/>
+					<br/>
+                    <section id="message">
+                        <div class="block-border">
+                            <div class="block-content no-title dark-bg">
+                                <p class="mini-infos"> Datatable Applicant </p>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="float-left" style="float:left;margin-left:480px;overflow-x:hidden;overflow-y:hidden;width:100%">
+
+                        <jqxDataTable #dataTable [width]="'100%'" [height]="350" [source]="dataAdapterLatest" [columns]="columnsLatest" [rtl]="true" style="float:left;margin-right:480px;overflow-x:hidden;overflow-y:hidden;"
+                                      [pageable]="true" [columnsResize]="true" [filterable]="true" [pagerButtonsCount]="10" [filterMode]="'advanced'">
+                        </jqxDataTable>
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

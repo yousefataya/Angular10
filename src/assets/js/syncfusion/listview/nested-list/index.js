@@ -1,0 +1,29 @@
+ej.base.enableRipple(window.ripple)
+/**
+ * ListView Nested Sample
+ */
+
+
+    //Initialize ListView component
+    var nestedListObj = new ej.lists.ListView({
+
+        //Set defined data to dataSource property
+        dataSource:  window.listViewData,
+
+        //Map appropriate columns to fields property
+        fields: { iconCss: 'icon', tooltip: 'text' },
+
+        //Set true to show icons
+        showIcon: true,
+
+        //Set header title
+        headerTitle: 'Folders',
+
+        //Set true to show header title
+        showHeader: true
+
+    });
+
+//Render initialized ListView component
+nestedListObj.appendTo('#listview');
+

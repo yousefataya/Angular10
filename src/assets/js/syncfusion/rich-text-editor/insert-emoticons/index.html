@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Rich Text Editor Insert Emoticons Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Insert Emoticons in Javascript (ES5) Rich Text Editor Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/rich-text-editor">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/rich-text-editor">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/rich-text-editor/types/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/rich-text-editor/insert-special-characters/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Insert Emoticons in Javascript (ES5) Rich Text Editor Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/rich-text-editor/default.html">
+                                <span>Rich Text Editor</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Insert Emoticons</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>
+        This sample shows how to add your own emoticons to toolbar of the rich text editor. 
+        The <code>&#x201C;&#x1F642;&#x201D; </code>  emoticon is added to insert custom emoticons in the editor. 
+        Click the &#x201C;&#x1F642;&#x201D; command to show the custom emoticons list, and then choose the emoticon to be inserted in the editor.
+    </p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="control-section e-rte-emoticon-tbar-section">
+    <div class="sample-container">
+        <div class="default-section" id="rteSection">
+            <div id="defaultRTE">
+                <div style="display:block;"><p style="margin-right:10px">The custom command &quot;insert special character&quot; is configured as the last item of the toolbar. Click on the command and choose the special character you want to include from the popup.</p></div>     
+            </div>
+            <div>
+            <div id="emoticonTbarDialog" style="display: none">
+                <div id="rteEmoticons-smiley">
+                    <div class="char_block" title="GRINNING FACE">&#x1F600;</div>
+                    <div class="char_block" title="GRINNING FACE WITH SMILING EYES">&#x1F601;</div>
+                    <div class="char_block" title="FACE WITH TEARS OF JOY">&#x1F602;</div>
+                    <div class="char_block" title="SMILING FACE WITH OPEN MOUTH">&#x1F603;</div>
+                    <div class="char_block" title="SMILING FACE WITH OPEN MOUTH AND SMILING EYES">&#x1F604;</div>
+                    <div class="char_block" title="SMILING FACE WITH OPEN MOUTH AND COLD SWEAT">&#x1F605;</div>
+                    <div class="char_block" title="SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES">&#x1F606;</div>
+                    <div class="char_block" title="SMILING FACE WITH HALO">&#x1F607;</div>
+                    <div class="char_block" title="SMILING FACE WITH HORNS">&#x1F608;</div>
+                    <div class="char_block" title="WINKING FACE">&#x1F609;</div>
+                    <div class="char_block" title="SMILING FACE WITH SMILING EYES">&#x1F60A;</div>
+                    <div class="char_block" title="FACE SAVOURING DELICIOUS FOOD">&#x1F60B;</div>
+                    <div class="char_block" title="RELIEVED FACE">&#x1F60C;</div>
+                    <div class="char_block" title="SMILING FACE WITH HEART-SHAPED EYES">&#x1F60D;</div>
+                    <div class="char_block" title="SMILING FACE WITH SUNGLASSES">&#x1F60E;</div>
+                    <div class="char_block" title="SMIRKING FACE">&#x1F60F;</div>
+                    <div class="char_block" title="NEUTRAL FACE">&#x1F610;</div>
+                    <div class="char_block" title="EXPRESSIONLESS FACE">&#x1F611;</div>
+                    <div class="char_block" title="UNAMUSED FACE">&#x1F612;</div>
+                    <div class="char_block" title="FACE WITH COLD SWEAT">&#x1F613;</div>
+                    <div class="char_block" title="PENSIVE FACE">&#x1F614;</div>
+                    <div class="char_block" title="CONFUSED FACE">&#x1F615;</div>
+                    <div class="char_block" title="CONFOUNDED FACE">&#x1F616;</div>
+                    <div class="char_block" title="KISSING FACE">&#x1F617;</div>
+                    <div class="char_block" title="FACE THROWING A KISS">&#x1F618;</div>
+                    <div class="char_block" title="KISSING FACE WITH SMILING EYES">&#x1F619;</div>
+                    <div class="char_block" title="KISSING FACE WITH CLOSED EYES">&#x1F61A;</div>
+                    <div class="char_block" title="FACE WITH STUCK-OUT TONGUE">&#x1F61B;</div>
+                    <div class="char_block" title="FACE WITH STUCK-OUT TONGUE AND WINKING EYE">&#x1F61C;</div>
+                    <div class="char_block" title="FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES">&#x1F61D;</div>
+                    <div class="char_block" title="DISAPPOINTED FACE">&#x1F61E;</div>
+                    <div class="char_block" title="WORRIED FACE">&#x1F61F;</div>
+                    <div class="char_block" title="ANGRY FACE">&#x1F620;</div>
+                    <div class="char_block" title="POUTING FACE">&#x1F621;</div>
+                    <div class="char_block" title="CRYING FACE">&#x1F622;</div>
+                    <div class="char_block" title="PERSEVERING FACE">&#x1F623;</div>
+                    <div class="char_block" title="FACE WITH LOOK OF TRIUMPH">&#x1F624;</div>
+                    <div class="char_block" title="DISAPPOINTED BUT RELIEVED FACE">&#x1F625;</div>
+                    <div class="char_block" title="FROWNING FACE WITH OPEN MOUTH">&#x1F626;</div>
+                    <div class="char_block" title="ANGUISHED FACE   ">&#x1F627;</div>
+                    <div class="char_block" title="FEARFUL FACE">&#x1F628;</div>
+                    <div class="char_block" title="WEARY FACE">&#x1F629;</div>
+                    <div class="char_block" title="SLEEPY FACE">&#x1F62A;</div>
+                    <div class="char_block" title="TIRED FACE">&#x1F62B;</div>
+                    <div class="char_block" title="GRIMACING FACE">&#x1F62C;</div>
+                    <div class="char_block" title="LOUDLY CRYING FACE">&#x1F62D;</div>
+                    <div class="char_block" title="FACE WITH OPEN MOUTH">&#x1F62E;</div>
+                    <div class="char_block" title="HUSHED FACE">&#x1F62F;</div>
+                    <div class="char_block" title="FACE WITH OPEN MOUTH AND COLD SWEAT">&#x1F630;</div>
+                    <div class="char_block" title="FACE SCREAMING IN FEAR">&#x1F631;</div>
+                    <div class="char_block" title="ASTONISHED FACE">&#x1F632;</div>
+                    <div class="char_block" title="FLUSHED FACE">&#x1F633;</div>
+                    <div class="char_block" title="SLEEPING FACE">&#x1F634;</div>
+                    <div class="char_block" title="DIZZY FACE">&#x1F635;</div>
+                </div>
+                <div id="rteEmoticons-animal" style="display: none">
+                    <div class="char_block" title="Monkey Face">&#x1F435;</div>
+                    <div class="char_block" title="Monkey">&#x1F412;</div>
+                    <div class="char_block" title="Gorilla">&#x1F98D;</div>
+                    <div class="char_block" title="Dog Face">&#x1F436;</div>
+                    <div class="char_block" title="Dog">&#x1F415;</div>
+                    <div class="char_block" title="Poodle">&#x1F429;</div>
+                    <div class="char_block" title="Wolf Face">&#x1F43A;</div>
+                    <div class="char_block" title="Fox Face">&#x1F98A;</div>
+                    <div class="char_block" title="Raccoon">&#x1F99D;</div>
+                    <div class="char_block" title="Cat Face">&#x1F431;</div>
+                    <div class="char_block" title="Cat">&#x1F408;</div>
+                    <div class="char_block" title="Lion Face">&#x1F981;</div>
+                    <div class="char_block" title="Tiger Face">&#x1F42F;</div>
+                    <div class="char_block" title="Tiger">&#x1F405;</div>
+                    <div class="char_block" title="Leopard">&#x1F406;</div>
+                    <div class="char_block" title="Horse Face">&#x1F434;</div>
+                    <div class="char_block" title="Horse">&#x1F40E;</div>
+                    <div class="char_block" title="Unicorn Face">&#x1F984;</div>
+                    <div class="char_block" title="Zebra">&#x1F993;</div>
+                    <div class="char_block" title="Deer">&#x1F98C;</div>
+                    <div class="char_block" title="Cow Face">&#x1F42E;</div>
+                    <div class="char_block" title="Ox">&#x1F402;</div>
+                    <div class="char_block" title="Water Buffalo">&#x1F403;</div>
+                    <div class="char_block" title="Cow">&#x1F404;</div>
+                    <div class="char_block" title="Pig Face">&#x1F437;</div>
+                    <div class="char_block" title="Pig">&#x1F416;</div>
+                    <div class="char_block" title="Boar">&#x1F417;</div>
+                    <div class="char_block" title="Pig Nose">&#x1F43D;</div>
+                    <div class="char_block" title="Ram">&#x1F40F;</div>
+                    <div class="char_block" title="Ewe">&#x1F411;</div>
+                    <div class="char_block" title="Goat">&#x1F410;</div>
+                    <div class="char_block" title="Camel">&#x1F42A;</div>
+                    <div class="char_block" title="Two-Hump Camel">&#x1F42B;</div>
+                    <div class="char_block" title="Lama">&#x1F999;</div>
+                    <div class="char_block" title="Giraffe">&#x1F992;</div>
+                    <div class="char_block" title="Elephant">&#x1F418;</div>
+                    <div class="char_block" title="Rhinoceros">&#x1F98F;</div>
+                    <div class="char_block" title="Hippopotamus">&#x1F99B;</div>
+                    <div class="char_block" title="Mouse Face">&#x1F42D;</div>
+                    <div class="char_block" title="Mouse">&#x1F401;</div>
+                    <div class="char_block" title="Rat">&#x1F400;</div>
+                    <div class="char_block" title="Hamster Face">&#x1F439;</div>
+                    <div class="char_block" title="Rabbit Face">&#x1F430;</div>
+                    <div class="char_block" title="Rabbit">&#x1F407;</div>
+                    <div class="char_block" title="Chipmunk">&#x1F43F;</div>
+                    <div class="char_block" title="Hedgehog">&#x1F994;</div>
+                    <div class="char_block" title="Bat">&#x1F987;</div>
+                    <div class="char_block" title="Bear Face">&#x1F43B;</div>
+                    <div class="char_block" title="Koala">&#x1F428;</div>
+                    <div class="char_block" title="Panda Face">&#x1F43C;</div>
+                    <div class="char_block" title="Kangaroo">&#x1F998;</div>
+                    <div class="char_block" title="Badger">&#x1F9A1;</div>
+                    <div class="char_block" title="Paw Prints">&#x1F43E;</div>
+                    <div class="char_block" title="Frog Face">&#x1F438;</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .e-rte-emoticon-tbar-section #special_char,
+    .e-rte-emoticon-tbar-section .char_block {
+        display: inline-block;
+    }
+
+    #emot_tbar,
+    #emot_tbar div{
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .e-bigger #emot_tbar div {
+        font-size: 18px;
+    }
+
+    #rteEmoticons-smiley  , #rteEmoticons-animal{
+        padding: 15px 0 15px 15px;
+    }
+
+    .material .e-rte-emoticon-tbar-section .char_block.e-active {
+        outline: 1px solid #e3165b;
+        border-color: #e3165b;
+    }
+
+    .fabric .e-rte-emoticon-tbar-section .char_block.e-active {
+        outline: 1px solid #0078d6;
+        border-color: #0078d6;
+    }
+
+    .bootstrap .e-rte-emoticon-tbar-section .char_block.e-active {
+        outline: 1px solid #317ab9;
+        border-color: #317ab9;
+    }
+
+    .highcontrast .e-rte-emoticon-tbar-section .char_block.e-active {
+        outline: 1px solid #ffd939;
+        border-color: #ffd939;
+    }
+
+    .fabric.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
+    .highcontrast.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
+        padding-right: 10px;
+    }
+
+    .bootstrap.e-bigger .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
+    .bootstrap .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
+        padding-right: 6px;
+    }
+
+    .fabric .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text,
+    .highcontrast .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn .e-tbar-btn-text {
+        padding-right: 8px;
+    }
+
+    .e-rte-emoticon-tbar-section .char_block {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        margin: 0 5px 5px 0;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #DDDDDD;
+        font-size: 20px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    @media (min-width: 320px) and (max-width: 480px) {
+        .fabric.e-bigger #emoticonTbarDialog {
+            min-width: 281px;
+        }
+		
+		#rteEmoticons-smiley  , #rteEmoticons-animal{
+        padding: 15px 0 15px 20px;
+		}
+
+        .fabric #emoticonTbarDialog {
+            min-width: 241px;
+        }
+
+        .bootstrap.e-bigger #emoticonTbarDialog,
+        .bootstrap #emoticonTbarDialog {
+            min-width: 223px;
+        }
+
+        .highcontrast.e-bigger #emoticonTbarDialog {
+            min-width: 283px;
+        }
+        .highcontrast #emoticonTbarDialog {
+            min-width: 243px;
+        }
+        .material #emoticonTbarDialog {
+            min-width: 224px;
+        }
+        .material.e-bigger #emoticonTbarDialog {
+            min-width: 236px;
+        }
+        #rteEmoticons-smiley  , #rteEmoticons-animal{
+        padding: 15px 0 15px 0px;
+        }
+    }
+</style>
+
+<!-- custom code start -->
+<style> 
+    #rteSection {
+        height: 500px;
+    }
+</style>
+<!-- custom code end --></div>
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            The rich text editor allows you to configure your own commands to its toolbar using toolbarSettings property. 
+        The command can be plain text, icon, or HTML template. 
+        You can also define the order and group where the command should be included. 
+        Bind the action to the command by getting its instance. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

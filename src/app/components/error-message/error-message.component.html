@@ -1,0 +1,5 @@
+<mat-card [ngClass]="customClass">
+  <mat-icon *ngIf="closable" (click)="closeAlert()">clear</mat-icon>
+  <mat-card-title>{{this.errorTitle}}</mat-card-title>
+  <mat-card-subtitle [innerHTML]="this.errorContent"></mat-card-subtitle>
+</mat-card>

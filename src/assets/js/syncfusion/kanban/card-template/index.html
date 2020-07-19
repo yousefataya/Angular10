@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Kanban Card Template Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Card Template in Javascript (ES5) Kanban Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/kanban">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/kanban">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/kanban/swimlane-template/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/kanban/tooltip-template/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Card Template in Javascript (ES5) Kanban Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/kanban/default.html">
+                                <span>Kanban</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Card Template</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>
+        This sample demonstrates how to customize the Kanban cards using templates. In this demo, the cards are
+        customized with
+        icons, images, and tags.
+    </p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="control-section">
+    <div class="control_wrapper">
+        <div id="Kanban"></div>
+    </div>
+</div>
+<script id="cardTemplate" type="text/x-jsrender">
+        <div class='card-template'>
+	        <div class='card-template-wrap'>
+		        <table class='card-template-wrap'>
+                    <colgroup>
+                        <col style="width:35px">
+                        <col style="width:calc(100% - 45px)">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td class='e-image'>
+				                <img src="//ej2.syncfusion.com/javascript/demos/src/kanban/images/${ImageURL}.png" alt="">
+				            </td>
+				            <td class='e-title e-tooltip-text'>
+                                <table class='card-template-wrap'>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2"><div class='card-header e-tooltip-text'>${Title}</div></td>
+                                        </tr>
+                                        <tr>
+                                            ${if(Category =="Menu" || Category=="Order" || Category=="Ready to Serve")}
+                                                <td colspan="2">
+                                                    <div class='e-description'>
+                                                        ${if(Category =="Menu")}
+                                                            ${Description}
+                                                        ${else}
+                                                            ${OrderID}
+                                                        ${/if}
+                                                    </div>
+                                                </td>
+                                            ${else}
+                                                <td><div class='e-description'>${OrderID}</div></td>
+                                                <td><span class='e-icons e-done'></span></td>
+                                            ${/if}
+                                        </tr>
+                                        <tr>
+                                            ${if(Category !="Menu")}
+                                                ${if(Category =="Order")}
+                                                    <td><div class='e-preparingText'>Preparing</div></td>
+                                                    <td>
+                                                        <div class='e-time'>
+                                                            <div class='e-icons e-clock'></div><div class='e-mins'>15 mins</div>
+                                                        </div>
+                                                    </td>
+                                                ${/if}
+                                                ${if(Category =="Ready to Serve")}
+                                                    <td><div class='e-readyText'>Ready to Serve</div></td>
+                                                    <td>
+                                                        <div class='e-time'>
+                                                            <div class='e-icons e-clock'></div><div class='e-mins'>5 mins</div>
+                                                        </div>
+                                                    </td>
+                                                ${/if}
+                                                ${if(Category =="Delivered" || Category=="Served")}
+                                                    <td><div class='e-deliveredText'>Delivered</div></td>
+                                                ${/if}
+                                            ${else}
+                                                <td><div class='e-size'>${Size}</div></td>
+                                                <td><div class='e-price'>${Price}</div></td>
+                                            ${/if}
+                                        </tr>
+                                    </tbody> 
+                                </table>
+                            </td>
+				        </tr>
+                    </tbody>
+                </table>     
+            </div>
+        </div>
+    </script>
+<style type="text/css">
+    .e-kanban .e-card {
+        height: auto !important;
+    }
+
+    .e-kanban .e-card .e-title {
+        padding: 10px 5px 10px 5px;
+    }
+
+    .e-kanban .e-time {
+        display: inline-flex;
+    }
+
+    .e-kanban .e-size {
+        color: #b8860b
+    }
+
+    .e-kanban .e-mins {
+        padding-left: 3px;
+    }
+
+    .e-kanban .e-clock {
+        padding-top: 2px;
+    }
+
+    .e-kanban .e-clock::before {
+        content: '\e20c';
+        color: #ffa500;
+        font-size: 10px;
+    }
+
+    .e-kanban .e-done::before {
+        content: '\ea84';
+        color: #008000;
+        font-size: 16px;
+    }
+
+    .fabric .e-kanban .e-clock::before {
+        content: '\e97f';
+    }
+
+    .bootstrap .e-kanban .e-clock::before {
+        content: '\e93e';
+    }
+
+    .bootstrap4 .e-kanban .e-clock::before {
+        content: '\e7c7';
+    }
+
+    .bootstrap4 .e-kanban .e-done::before {
+        content: '\e7d9';
+    }
+
+    .highcontrast .e-kanban .e-clock::before {
+        content: '\e97f';
+    }
+
+    .e-kanban .card-template-wrap {
+        line-height: normal;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .e-kanban .card-template-wrap td {
+        background: none !important;
+        border: none !important;
+        height: auto !important;
+        line-height: 1.6;
+    }
+
+    .e-kanban .e-image img {
+        background: #ececec;
+        border: 1px solid #c8c8c8;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+    }
+
+    .e-kanban .e-image {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .e-kanban .card-header {
+        font-size: 15px;
+        font-weight: 500;
+        display: inline-block;
+    }
+
+    .e-kanban .e-description {
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    .e-kanban .e-readyText {
+        color: #008000;
+    }
+
+    .e-kanban .e-preparingText {
+        color: #9ACD32;
+        animation: blinker 1s linear infinite;
+    }
+
+    .e-kanban .e-deliveredText {
+        color: #ff0000;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+
+
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            
+        You can customize the default design of the Kanban cards using templates. This can be achieved using the
+        cardSettings -&gt; template property, which accepts the string or HTML element`s ID
+        value.
+    
+    In this demo, all the cards are customized with templating as text, images, and tags.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="datasource.js"  type="text/javascript"></script>
+
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>

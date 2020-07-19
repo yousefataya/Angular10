@@ -1,0 +1,212 @@
+app-layout, app-layout-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+app-header {
+    background-color: #0A69b7;
+    padding: 1rem;
+}
+
+app-header * {
+    color: #FFF;
+    margin: 0;
+}
+
+main {
+    background-color: #FFF;
+    flex: auto;
+    padding: 1rem !important;
+}
+
+app-footer {
+    background-color: #242729;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+app-footer * {
+    color: #BBB;
+    margin: 0;
+}
+
+input.ng-dirty.ng-valid,
+input.ng-touched.ng-valid,
+select.ng-dirty.ng-valid,
+select.ng-touched.ng-valid,
+textarea.ng-dirty.ng-valid,
+textarea.ng-touched.ng-valid,
+.ng-dirty.ng-valid > input,
+.ng-touched.ng-valid > input,
+.ng-dirty.ng-valid > select,
+.ng-touched.ng-valid > select,
+.ng-dirty.ng-valid > textarea,
+.ng-touched.ng-valid > textarea {
+    background-color: #EDFBF6;
+    border: 0.05rem solid #32D296;
+    color: #32D296;
+}
+
+input.ng-dirty.ng-invalid,
+input.ng-touched.ng-invalid,
+select.ng-dirty.ng-invalid,
+select.ng-touched.ng-invalid,
+textarea.ng-dirty.ng-invalid,
+textarea.ng-touched.ng-invalid,
+.ng-dirty.ng-invalid > input,
+.ng-touched.ng-invalid > input,
+.ng-dirty.ng-invalid > select,
+.ng-touched.ng-invalid > select,
+.ng-dirty.ng-invalid > textarea,
+.ng-touched.ng-invalid > textarea {
+    background-color: #FEF4F6;
+    border: 0.05rem solid #F0506E;
+    color: #F0506E;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+:disabled > input,
+:disabled > select,
+:disabled > textarea {
+    background-color: #F8F8F8 !important;
+    border-color: #E5E5E5 !important;
+    color: #999 !important;
+}
+
+.icon {
+    vertical-align: text-bottom;
+}
+
+.nav {
+    border: 1px solid #DDD;
+}
+
+.nav-active * {
+    color: #000;
+    font-weight: 500;
+}
+
+jw-modal {
+    /* modals are hidden by default */
+    display: none;
+
+    .jw-modal {
+        /* modal container fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* z-index must be higher than .jw-modal-background */
+        z-index: 1000;
+        /* enables scrolling for tall modals */
+        overflow: auto;
+
+        .jw-modal-body {
+            padding: 20px;
+            background: #fff;
+            /* margin exposes part of the modal background */
+            margin: 40px;
+        }
+    }
+
+    .jw-modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.75;
+        /* z-index must be below .jw-modal and above everything else  */
+        z-index: 900;
+    }
+}
+
+.e-tooltxt .mailtools {
+    background-image: url('../assets/img/icons8-calendar-100.png');
+}
+
+.e-tooltxt .mailtools {
+    display: block;
+    background-image: url('../assets/img/icons8-calendar-100.png');
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+}
+
+.e-tooltxt:hover .mailtools, .darktheme .cols-sample-area .e-tooltxt:hover .mailtools {
+    background-image: url('../assets/img/icons8-calendar-100.png');
+}
+
+.mailtools.done {
+    background-position: -11px -140px;
+}
+
+.mailtools.movetofolder {
+    background-position: -12px -40px;
+}
+
+.mailtools.categorize {
+    background-position: -14px -248px;
+}
+
+.mailtools.flag {
+    background-position: -13px -282px;
+}
+
+.mailtools.forward {
+    background-position: -14px -314px;
+}
+
+.mailtools.newmail {
+    background-position: -14px -348px;
+}
+
+.mailtools.reply {
+    background-position: -14px -388px;
+}
+
+.frame {
+    height: 280px;
+    width: 695px;
+    border-radius: none;
+    margin-left: 0;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.control {
+    margin: 120px 200px 0;
+}
+
+body.jw-modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+@import url('home.compnent.css');
+@import url('login.component.css');
+
+@import url('app.component.css');
+
+@import url('jqxStyles/jqx.base.css');
+@import url('datagrid/datatables/datatables.bundle.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import url('../../node_modules/@syncfusion/ej2-base/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-buttons/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-inputs/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-popups/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-lists/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-navigations/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-dropdowns/styles/material.css');
+@import url('../../node_modules/@syncfusion/ej2-angular-documenteditor/styles/material.css');
+
+

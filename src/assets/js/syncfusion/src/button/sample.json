@@ -1,0 +1,70 @@
+{
+    "name": "Button",
+    "directory": "button",
+    "category": "Editors",
+    "samples": [
+        {
+            "url": "default",
+            "name": "Default Functionalities",
+            "category": "Button",
+            "ftName": "button",
+            "api":{"Button":["isPrimary","cssClass", "iconCss", "isToggle", "iconPosition", "content"] },
+            "description": "This example demonstrates the types (flat, toogle, outline, round), sizes and styles (primary, success, info, warning) of the Syncfusion Javascript ES5 button."
+        },
+        {
+            "url": "button-group",
+            "name": "Button Group",
+            "category": "Button",
+            "ftName": "button-group",
+            "description": "This example demonstrates the behaviors (default, checkbox, radio) of the Syncfusion Javascript ES5 ButtonGroup."
+        },
+        {
+            "url": "checkbox",
+            "name": "Checkbox",
+            "category": "Button",
+            "ftName": "checkbox",
+            "api":{"CheckBox":["label", "checked", "indeterminate", "disabled", "change"] },
+            "description": "This example demonstrates the three different states (checked, unchecked, indeterminate) of the Syncfusion Javascript ES5 CheckBox."
+        },
+        {
+            "url": "radio-button",
+            "name": "Radio Button",
+            "category": "Button",
+            "ftName": "radio-button",
+            "api":{"RadioButton":["label", "name", "value", "checked"] },
+            "description": "This example demonstrates the group functionality of the Syncfusion Javascript ES5 RadioButton with checked and unchecked states."
+        },
+        {
+            "url": "dropdown-button",
+            "name": "Dropdown Menu",
+            "category": "Button",
+            "ftName": "dropdown-menu",
+            "api":{"DropDownButton":["items", "cssClass", "iconCss"] },
+            "description": "This example demonstrates the usecases of the Syncfusion Javascript ES5 DropDownButton with icons, text and separator in popup action items."
+        },
+        {
+            "url": "split-button",
+            "name": "Split Button",
+            "category": "Button",
+            "ftName": "split-button",
+            "api":{"SplitButton":[ "items", "content", "iconCss", "beforeItemRender"] },
+            "description": "This example demonstrates the usecases of the Syncfusion Javascript ES5 SplitButton with icons and text in primary splitbutton."
+        },
+        {
+            "url": "switch",
+            "name": "Switch",
+            "category": "Button",
+            "ftName": "toggle-switch-button",
+            "api":{"Switch":[ "checked", "disabled"] },
+            "description": "This example demonstrates the toggle states (checked, unchecked) of the Syncfusion JavaScript ES5 Switch."
+        },
+        {
+            "url": "progress-button",
+            "name": "Progress Button",
+            "category": "Button",
+            "ftName": "progress-button",
+            "api":{"ProgressButton":["content", "iconCss", "cssClass", "duration", "disabled", "isPrimary", "enableProgress", "end", "begin", "spinSettings", "animationSettings"]},
+            "description": "This example demonstrates the different functionalities of the Syncfusion Javascript ES5 ProgressButton with spinner and progress indicator."
+        }
+    ]
+}

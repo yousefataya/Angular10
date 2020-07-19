@@ -1,0 +1,102 @@
+<div class="col-lg-9 control-section">
+    <div class="control_wrapper">
+        <div id='container'>
+            <div id='Kanban'></div>
+            <div id='Dialog'></div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 property-section">
+    <table id="property" title="Properties">
+        <tr>
+            <td>
+                <div><button class="e-btn e-dialog-add" id="addNew">Add New Card</button></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+<script id='dialogTemplate' type="text/x-template">
+     <form id='formId' novalidate="">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="e-float-input e-control-wrapper">
+                    <input id="Id" name="Id" type="text" class="e-field" value="${Id}" disabled required/>
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text e-label-top" for="Id">Id</label>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="Status" id="Status" class="e-field" value=${Status} required />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input name="Estimate" id="Estimate" class="e-field" value="${Estimate}" />
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="Assignee" id="Assignee" class="e-field" value=${Assignee} /> 
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="e-float-input e-control-wrapper">
+                    <input id="Tags" name="Tags" type="text" class="e-field" value="${Tags}" required/>
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text e-label-top" for="Tags">Tags</label>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="Priority" id="Priority" class="e-field" value=${Priority} /> 
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="e-float-input e-control-wrapper">
+                    <textarea type="text" name="Summary" id="Summary" class="e-field" value=${Summary}>${Summary}</textarea>
+                    <span class="e-float-line"></span>
+                    <label class="e-float-text e-label-top" for="Summary">Summary</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
+<style>
+    #Dialog .e-dialog-delete {
+        float: left;
+    }
+
+    .e-dialog .e-dlg-header, .form-group {
+        padding-left: 6px;
+    }
+
+    .form-group {
+        padding-right: 6px;
+    }
+</style>
+<div id="action-description">
+    <p>
+        This sample showcases the CRUD (Create, Read, Update, and Delete) operations of the Kanban control. You can add
+        a new
+        card using the button from the property panel and read, update, or delete a card by opening the card details in
+        dialog
+        by double-clicking it.
+    </p>
+</div>
+<div id="description">
+    <p>
+        The sample is designed to showcase the CRUD operations of the Kanban board. The Kanban provides the essential
+        methods to
+        handle the CRUD operation from the application-end.
+    </p>
+    <ol>
+        <li>updateCard</li>
+        <li>addCard</li>
+        <li>deleteCard</li>
+    </ol>
+    <p>
+        The double click event of the card is used to open the card details in a dialog and read, edit, or delete a
+        card.
+    </p>
+</div>

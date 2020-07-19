@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Javascript (ES5) Range Slider Cloud Pricing Example - Syncfusion Demos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> <meta name="description" content="This example demonstrates the Cloud Pricing in Javascript (ES5) Range Slider Control. Explore here for more details." />
+    <meta name="author" content="Syncfusion" />
+    <link rel="shortcut icon" href="https://ej2.syncfusion.com/home/favicon.ico" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WLQL39J');</script>
+    <!-- End Google Tag Manager -->
+    <script type="text/javascript">
+        var themeName = location.hash || 'material';
+        themeName = themeName.replace('#', '');
+        window.ripple = (themeName === "material")
+        document.write('<link href="../../dist/' + themeName + '.css" rel="stylesheet">');
+    </script>
+    <script type="text/javascript">
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+            document.write("<script src=\'https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js\'>");
+        }</script>
+    <script src="../../dist/ej2.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #loader {
+            color: #008cff;
+            height: 40px;
+            left: 45%;
+            position: absolute;
+            top: 45%;
+            width: 30%;
+        }
+
+        body {
+            touch-action: none;
+        }
+    </style>
+</head>
+
+<body class='e-view ej2-new' aria-busy="true">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLQL39J"height="0"width="0"style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div hidden id="sync-analytics" data-queue="EJ2 - Javascript (ES5) - Demos"></div>
+    <div class="sample-browser">
+        <div id='sample-header' class="sb-header" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="header-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="footer-logo"> </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="sb-header-splitter sb-download-splitter"></div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+            <div class='sb-header-right sb-right sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class='product-style'>
+                        <div>
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/slider">PRODUCT DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="sb-header-item sb-table-cell sb-download-wrapper">
+                        <a href="https://www.syncfusion.com/downloads/essential-js2" target="_blank">
+                            <button id="download-now" class="sb-download-btn">
+                                <span class="sb-download-text">DOWNLOAD</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id='sample-header' class="sb-headers" role="banner">
+            <div class='sb-header-left sb-left sb-table'>
+                <div class='sb-header-item sb-table-cell'>
+                    <div class="syncfusion-logo">
+                        <a href="https://ej2.syncfusion.com/home/javascript.html" target="" rel="noopener noreferrer">
+                            <div class="sync-logo"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class='sb-header-item sb-table-cell'>
+                    <div id='sb-header-text' class='e-sb-header-text'>
+                        <span class='sb-header-text-left'>Essential JS 2 for JavaScript (ES5)</span>
+                    </div>
+                </div>
+            </div>
+                <div class='sb-header-right sb-right sb-table'>
+                    <div class='sb-header-item sb-table-cell'>
+                        <div class="product">
+                            <a href="https://www.syncfusion.com/javascript-ui-controls/slider">
+                            <div class="sb-icon-notification sb-icons"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class='content e-view'>
+            <div class='sample-content'>
+                <div id="sample-bread-crumb" class="sb-bread-crumb">
+                    <div class="sb-custom-item sb-sample-navigation sb-right sb-header-right sb-table-cell">
+                        <div id="prev-sample" class="sb-navigation-prev e-control e-tooltip " aria-label="previous sample" title="Previous Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/slider/tooltip-customization/" class=''><span class="sb-icons sb-icon-Previous"></span></a>
+                           
+                        </div>
+                        <div id="next-sample" class="sb-navigation-next e-control e-tooltip" aria-label="next sample" title="Next Sample">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/avatar/default/" class=''><span class="sb-icons sb-icon-Next"></span></a>
+                            
+                        </div>
+                    </div>
+                    <h1 class="sb-bread-crumb-text">
+                        Example for Cloud Pricing in Javascript (ES5) Range Slider Control
+                    </h1>
+
+                    <h2 class="sb-bread-crumb-text">
+                        <div class="category-allcontrols">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/">
+                                <span>All Controls</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="category-text bread-ctext">
+                            <a href="https://ej2.syncfusion.com/javascript/demos/#/material/slider/default.html">
+                                <span>Range Slider</span>
+                            </a>
+                        </div>
+                        <div class="category-seperator sb-icons"> / </div>
+                        <div class="crumb-sample">Cloud Pricing</div>
+                    </h2>
+                </div>
+                <div class="control-content">
+                    <div id="action-description">
+                        <p>
+                            <p>
+                                <div class="layout" id="actionDes">
+    <p>This sample demonstrates the cloud pricing slider used to calculate the cloud costs by considering web hosting, VPS hosting,
+        cloud server providers. Drag the thumb over the bar for selecting processor, memory, and storage.
+    </p>
+</div>
+                                    <a id="details" class="layout" onclick="desDetails()"> More Details...</a>
+                                    <script>
+                                        function desDetails() {
+                                            var element = document.getElementById('description-section');
+                                            if (element) {
+                                                element.scrollIntoView();
+                                            }
+                                        }
+                                    </script>
+                            </p>
+                        </p>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="control-section">
+                            <div class="col-lg-10 control-section">
+    <div class="content-wrapper">
+        <div id="pricing-slider" class="pricing-slider">
+            <div class="row">
+                <div id="cloud-left-pane" class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="cloud-slider">
+                        <div id="processor"></div>
+                        <span class="label-text"> Processor </span>
+                        <!-- processor Slider element -->
+                        <div id="processor-slider"></div>
+                        <div class="sub-heading"> Each core included minimum 2.26 GHz power </div>
+                    </div>
+                    <div class="cloud-slider cloud-left-slider">
+                        <div id="memory"></div>
+                        <span class="label-text"> Memory </span>
+                        <!-- memory Slider element -->
+                        <div id="memory-slider"></div>
+                        <div class="sub-heading"> Equal to burstable memory included </div>
+                    </div>
+                    <div class="cloud-slider cloud-left-slider">
+                        <div id="storage"></div>
+                        <span class="label-text"> Storage </span>
+                        <!-- storage Slider element -->
+                        <div id="storage-slider"></div>
+                        <div class="sub-heading"> 1000 GB bandwidth per month, at 100 Mbit/s uplink port </div>
+                    </div>
+                </div>
+                <div id="cloud-right-pane" class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="cloud-right-content">
+                        <div class="label-text"> Size Range </div>
+                        <div class="btn-size">
+                            <!-- Button element -->
+                            <button id="xSmallBtn">XS</button>
+                            <!-- Button element -->
+                            <button id="smallBtn">S</button>
+                            <!-- Button element -->
+                            <button id="mediumBtn">M</button>
+                            <!-- Button element -->
+                            <button id="largeBtn">L</button>
+                            <!-- Button element -->
+                            <button id="xLargeBtn">XL</button>
+                        </div>
+                        <div class="label-text right-text"> Estimated Price </div>
+                        <div id="cloud-slider-text">
+                            <span id="dollar">$ </span>
+                            <span id="value"></span>
+                            <span class="suffix">/month</span>
+                        </div>
+                        <div class="discount">
+                            <div class="cloud-slider-right">
+                                <!-- cPanel Check Box element -->
+                                <input id="cPanel">
+                            </div>
+                            <div class="cloud-slider-right discount-pay">
+                                <!-- discount Check Box element -->
+                                <input id="discount">
+                            </div>
+                        </div>
+                        <!-- Button element -->
+                        <div class="slider-button">
+                            <button id="btn" class="dlgbtn">Signup Now</button>
+                        </div>
+                        <div id="dialogWrapper" class="content-wrapper">
+                            <!-- Initialize alert Dialog -->
+                            <div id="alertDialog"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+    }
+
+    #pricing-slider #cloud-right-pane .btn-size {
+        padding-top: 16px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    #pricing-slider .e-slider-container.e-horizontal {
+        height: 56px;
+    }
+
+    #pricing-slider .row {
+        border: 1px solid #CCCCCC;
+        box-shadow: 0px 0px 4px;
+        opacity: 100;
+
+        border-radius: 4px;
+    }
+
+    .discount .e-label,
+    .discount .e-label {
+        white-space: initial;
+    }
+
+    #pricing-slider .sub-heading {
+        margin-top: -8px;
+        font-size: 13px;
+        font-family: Roboto-Regular;
+        color: #808080;
+    }
+
+    #pricing-slider .label-text.right-text {
+        padding-top: 16px;
+        padding-bottom: 20px;
+    }
+
+    #pricing-slider .label-text {
+        color: #000000;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    span.e-label .offer {
+        color: #4A90E2;
+    }
+
+    .cloud-slider {
+        display: block;
+        position: relative;
+    }
+
+
+    #processor {
+        background-color: #A06AFF;
+    }
+
+    #memory {
+        background-color: #7ED321;
+    }
+
+    #storage {
+        background-color: #4A90E2;
+    }
+
+    #memory,
+    #storage,
+    #processor {
+        font-family: Roboto-Medium;
+        font-size: 14px;
+        height: 24px;
+        width: 70px;
+        text-align: center;
+        line-height: 24px;
+        float: right;
+        color: #FFFFFF;
+        font-weight: 500;
+        border-radius: 18px;
+    }
+
+    #cPanel,
+    #discount {
+        height: 30px;
+        margin-top: -10px;
+        width: 20px;
+    }
+
+
+    #value {
+        color: #000000;
+        font-family: Roboto-Bold;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    #suffix {
+        color: #000000;
+        font-family: Roboto-Regular;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .text {
+        font-size: 13px;
+        padding-top: 26px;
+        width: 190px;
+    }
+
+    #cloud-right-pane {
+        background-color: #FFFFFF;
+        border-left: 1px solid #CCCCCC;
+        padding: 20px;
+        height: 443px;
+    }
+
+    .pricing-slider {
+        margin-top: 40px;
+        min-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .cloud-slider-right {
+        color: #000000;
+        font-size: 14px;
+    }
+
+    .cloud-slider-right.discount-pay {
+        padding-top: 20px;
+    }
+
+    #cloud-left-pane {
+        height: 443px;
+        padding: 40px;
+        background-color: #FAFAFA;
+    }
+
+    .discount {
+        padding-top: 20px;
+        padding-bottom: 35px;
+    }
+
+    @media (max-width: 1010px) {
+        #cloud-right-pane {
+            border-top: 1px solid #d5d7d8 !important;
+            border-left: none !important;
+            border-width: 1px 0 0!important;
+            padding-top: 15px !important;
+            padding-left: 0!important;
+        }
+        .cloud-right-content {
+            padding-left: 24px !important;
+        }
+        #cloud-left-pane {
+            width: 100%;
+        }
+        #cloud-right-pane {
+            width: 100%;
+        }
+    }
+
+    #cloud-slider-text {
+        padding-bottom: 20px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    #dollar {
+        color: #000000;
+        font-family: Roboto-Regular;
+        font-size: 14px;
+        font-weight: 500;
+        position: relative;
+        top: -7px;
+    }
+
+
+    #btn {
+        text-transform: uppercase;
+        width: -webkit-fill-available;
+    }
+
+    .cloud-left-slider {
+        margin-top: 40px;
+    }
+
+    .control-section {
+        padding-top: 0px;
+        margin-left: 75px;
+
+    }
+
+    @media screen and (max-width: 1199px) {
+        .control-section {
+            margin-left: 0px;
+        }
+    }
+
+    .cloud-right-content .e-btn.e-info {
+        padding: 0px;
+        width: 30px;
+        height: 30px;
+        line-height: inherit;
+    }
+
+    .highcontrast .pricing-slider,
+    .highcontrast #pricing-slider .label-text,
+    .highcontrast #pricing-slider .sub-heading {
+        color: white;
+    }
+
+    .fabric .cloud-right-content .e-btn.e-info,
+    .highcontrast .e-btn.e-info {
+        line-height: 2px;
+    }
+
+    .highcontrast #dollar,
+    .highcontrast #value,
+    .highcontrast #dialog-header,
+    .highcontrast #StorgeDialog,
+    .highcontrast #CloudDialog,
+    .highcontrast #processorDialog {
+        color: white;
+    }
+
+    .highcontrast #pricing-slider .row {
+        border: 1px solid #969696;
+    }
+
+    .highcontrast #cloud-right-pane {
+        border-left: 1px solid #969696;
+    }
+
+    .highcontrast #cloud-slider-text,
+    .highcontrast #pricing-slider #cloud-right-pane .btn-size {
+        border-bottom: 1px solid #969696;
+    }
+
+    .highcontrast #processor {
+        background-color: #AE80FF;
+    }
+
+    .highcontrast #memory {
+        background-color: #7ED321;
+    }
+
+    .highcontrast #storage {
+        background-color: #61A4EF;
+    }
+
+    .highcontrast #cloud-left-pane {
+        background-color: #1a1a1a;
+    }
+
+    .highcontrast #cloud-right-pane {
+        background-color: #000;
+    }
+
+    .highcontrast #processorPriceName,
+    .highcontrast #memoryPriceName,
+    .highcontrast #storgePriceName,
+    .highcontrast #cloudPriceName {
+        color: white;
+        opacity: 1;
+    }
+
+    #dialog-header {
+        color: #000000;
+        opacity: .87;
+        font-family: Roboto-Medium;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    #CloudDialog {
+        color: #000000;
+        padding-top: 14px;
+        padding-bottom: 24px;
+        border-top: 1px solid #CCCCCC;
+    }
+
+    #processorPrice,
+    #memoryPrice,
+    #storgePrice {
+        opacity: 0.9;
+        font-family: Roboto-Bold;
+        font-weight: 600;
+        font-size: 16px;
+        float: right;
+    }
+
+    #alertDialog .e-footer-content {
+        padding-top: 0;
+    }
+
+    #processorPriceName,
+    #memoryPriceName,
+    #storgePriceName,
+    #cloudPriceName {
+        opacity: 0.9;
+        color: #000000;
+        font-family: Roboto-Regular;
+        font-size: 16px;
+    }
+
+    #cloudPrice {
+        opacity: 0.9;
+        font-family: Roboto-Bold;
+        font-weight: 600;
+        font-size: 26px;
+        float: right;
+    }
+
+    #processorDialog {
+        color: #000000;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    #StorgeDialog {
+        color: #000000;
+        padding-top: 12px;
+        padding-bottom: 16px;
+    }
+	
+	.bootstrap4 #pricing-slider .row {
+		box-shadow: none;
+	}
+</style>
+                        </div>
+                    </div>
+                    <div id="description-section">Description</div>
+                    <div id="description">
+                        <p>
+                            This sample calculates the cloud cost based on number of workloads, complexity of workloads, system, and monitoring requirements
+        which is used under cloud operation.
+    
+    In this demo, default rendering of slider is used for selecting processor, memory, and storage. The estimated price for
+        the selection will appear on the left pane.
+    25% offer can be availed for an annual pack. This can be applied by checking the checkbox from the left pane.
+    By default, cPanel will be included in the monthly pack. If you don&apos;t want, check the checkbox from the left pane which
+        will reduce $10 from the estimated price.
+    Different range of packs are also selected from the left pane toolbar which will have default configuration based on
+        the range size.
+    After choosing your pack, confirm it by clicking sign up which will show your selected package details in a dialog box.
+    
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+<script src="index.js" type="text/javascript"></script>
+</body>
+
+</html>
